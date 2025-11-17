@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { GoDotFill } from "react-icons/go";
 import { FaStar } from "react-icons/fa6";
 import Marquee from "react-fast-marquee";
@@ -11,9 +11,14 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Pagination, Navigation, Autoplay } from 'swiper/modules';
+import { BiCategory } from 'react-icons/bi';
 
 
 export default function Homepage() {
+
+  const [selectedCategory,setSelectedCategory]=useState('all')
+
+
 
 
   const names = [
@@ -26,15 +31,26 @@ export default function Homepage() {
   ]
 
   const product = [
-    { image: '/images/imgi_15_68d67ed24708b3054414f063_products-1.png', name: 'Oatmeal raisin cookies', reviews: '146 reviews', price: '$ 3.84 USD' },
-    { image: '/images/imgi_17_68d67f5c6342b6c7ed37d668_products-14.png', name: 'Soft pretzels', reviews: '235 reviews', price: '$ 4.64 USD' },
-    { image: '/images/imgi_19_68d67fe4ab262b4e4de1a29e_products-18.png', name: 'Baguette soft breads', reviews: '380 reviews', price: '$ 14.84 USD' },
-    { image: '/images/imgi_21_68d680689c9187b6a5e053c9_products-10.png', name: 'Chocolate hazelnut cannoli', reviews: '120 reviews', price: '$ 3.24 USD' },
-    { image: '/images/imgi_23_68d680bf793abc58efc73b0b_products-9.png', name: 'Almond croissant', reviews: '436 reviews', price: '$ 6.72USD' },
-    { image: '/images/imgi_24_68d680fb088131fe616531ec_products-6.png', name: 'Croissant au beurre', reviews: '175 reviews', price: '$ 12.14 USD' },
-    { image: '/images/imgi_25_68d681a85087e2bb9ab99aa8_products-3.png', name: 'Chiffon pie', reviews: '110 reviews', price: '$ 7.84 USD' },
-    { image: '/images/imgi_27_68d682231da4a1c391d1d7be_products-15.png', name: 'Focaccia genovese', reviews: '092 reviews', price: '$ 13.84 USD' },
+    { image: '/images/imgi_15_68d67ed24708b3054414f063_products-1.png', name: 'Oatmeal raisin cookies', reviews: '146 reviews', price: '$ 3.84 USD',Category:'Best Sellers' },
+    { image: '/images/imgi_17_68d67f5c6342b6c7ed37d668_products-14.png', name: 'Soft pretzels', reviews: '235 reviews', price: '$ 4.64 USD',Category:'Best Sellers'  },
+    { image: '/images/imgi_19_68d67fe4ab262b4e4de1a29e_products-18.png', name: 'Baguette soft breads', reviews: '380 reviews', price: '$ 14.84 USD',Category:'Best Sellers'  },
+    { image: '/images/imgi_21_68d680689c9187b6a5e053c9_products-10.png', name: 'Chocolate hazelnut cannoli', reviews: '120 reviews', price: '$ 3.24 USD',Category:'Best Sellers'  },
+    { image: '/images/imgi_23_68d680bf793abc58efc73b0b_products-9.png', name: 'Almond croissant', reviews: '436 reviews', price: '$ 6.72USD' ,Category:'Fresh Bakes' },
+    { image: '/images/imgi_24_68d680fb088131fe616531ec_products-6.png', name: 'Croissant au beurre', reviews: '175 reviews', price: '$ 12.14 USD',Category:'Fresh Bakes'  },
+    { image: '/images/imgi_25_68d681a85087e2bb9ab99aa8_products-3.png', name: 'Chiffon pie', reviews: '110 reviews', price: '$ 7.84 USD',Category:'Fresh Bakes'  },
+    { image: '/images/imgi_27_68d682231da4a1c391d1d7be_products-15.png', name: 'Focaccia genovese', reviews: '092 reviews', price: '$ 13.84 USD',Category:'Fresh Bakes'  },
   ]
+
+ const filterData=product.filter(sl => selectedCategory == 'all' ? true : sl.Category == selectedCategory)
+
+
+//  const filterData = product.filter(sl => {
+//   if (selectedCategory === 'all') {
+//     return true;
+//   }
+//   return sl.Category === selectedCategory;
+// });
+//   console.log('filterData',filterData)
 
   const item = [
     { image: '/images/imgi_15_68d67ed24708b3054414f063_products-1.png', name: 'Oatmeal raisin cookies', reviews: '146 reviews', price: '$ 3.84 USD' },
@@ -121,16 +137,16 @@ export default function Homepage() {
             <div className=' md:flex justify-between '>
               <h1 className='lg:text-4xl text-2xl font-bold text-[#290a03]'>List of our products</h1>
               <div className='flex gap-4 text-sm pt-4 *:cursor-pointer'>
-                <h1 className='border border-none  w-30 rounded-full px-2 p-2  bg-amber-400 text-center text-[#290a03] hover:bg-[#290a03] hover:text-white font-medium'>New Products</h1>
-                <h1 className='border border-none bg-[#f4ebe2] w-30 rounded-full p-2 font-medium text-center text-[#290a03]  hover:bg-[#290a03] hover:text-white'>Best Sellers</h1>
-                <h1 className='border border-none bg-[#f4ebe2] w-30 rounded-full p-2 font-medium text-center text-[#290a03] hover:bg-[#290a03] hover:text-white'>Fresh Bakes</h1>
+                <button onClick={()=>setSelectedCategory('all')} className={`border border-none  w-30 rounded-full px-2 p-2 ${selectedCategory=='all' ? 'bg-amber-400': 'bg-[#f4ebe2]' }  text-center text-[#290a03] hover:bg-[#290a03] hover:text-white font-medium`}>All Products</button>
+                <button onClick={()=>setSelectedCategory('Best Sellers')} className={`border border-none  w-30 rounded-full px-2 p-2 ${selectedCategory=='Best Sellers' ? 'bg-amber-400': 'bg-[#f4ebe2]' }  text-center text-[#290a03] hover:bg-[#290a03] hover:text-white font-medium`}>Best Sellers</button>
+                <button onClick={()=>setSelectedCategory('Fresh Bakes')} className={`border border-none  w-30 rounded-full px-2 p-2 ${selectedCategory=='Fresh Bakes' ? 'bg-amber-400': 'bg-[#f4ebe2]' }  text-center text-[#290a03] hover:bg-[#290a03] hover:text-white font-medium`}>Fresh Bakes</button>
               </div>
             </div>
           </div>
 
           <div className='pt-10 gap-4  lg:gap-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 '>
-            {product.map((item, index) => (
-              <div className=' p-2 rounded-4xl pl-2 bg-linear-to-b from-[#f4ebe2] to-[#f4ebe2] lg:from-white lg:hover:from-[#f4ebe2] flex flex-col justify-between'>
+            {filterData.map((item, index) => (
+              <div key={index} className=' p-2 rounded-4xl pl-2 bg-linear-to-b from-[#f4ebe2] to-[#f4ebe2] lg:from-white lg:hover:from-[#f4ebe2] flex flex-col justify-between'>
                 <img className='rounded-3xl' src={item.image} alt="" />
                 <div className="">
                   <div className='lg:ml-4'>

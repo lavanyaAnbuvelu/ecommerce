@@ -5,6 +5,7 @@ import Homepage from '../pages/Homepage'
 import Contact from '../pages/Contact'
 import ContactPage from '../pages/ContactPage'
 import AboutPage from '../pages/AboutPage'
+import BreadPage from '../pages/BreadPage'
 
 export default function Routers() {
   return (
@@ -16,6 +17,7 @@ export default function Routers() {
     <Route path='/c' element={<Contact/>}/>
     <Route path='/contact' element={<ContactPage/>}/>
     <Route path='/about' element={<AboutPage/>}/>
+    <Route path='/menu' element={<BreadPage/>}/>
     </Route>
    </Routes>
    </BrowserRouter>

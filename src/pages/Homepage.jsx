@@ -3,7 +3,7 @@ import { GoDotFill } from "react-icons/go";
 import { FaStar } from "react-icons/fa6";
 import Marquee from "react-fast-marquee";
 import { FaStarOfLife } from "react-icons/fa6";
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { FaArrowLeft } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -16,7 +16,18 @@ import { BiCategory } from 'react-icons/bi';
 
 export default function Homepage() {
 
-  const [selectedCategory,setSelectedCategory]=useState('all')
+  const [selectedCategory, setSelectedCategory] = useState('all')
+
+  const location = useLocation()
+
+  console.log(location.state)
+
+  const navigate = useNavigate()
+
+  const data1 = (text) => {
+    console.log('data1')
+    navigate('/menu', { state:text })
+  }
 
 
 
@@ -31,26 +42,26 @@ export default function Homepage() {
   ]
 
   const product = [
-    { image: '/images/imgi_15_68d67ed24708b3054414f063_products-1.png', name: 'Oatmeal raisin cookies', reviews: '146 reviews', price: '$ 3.84 USD',Category:'Best Sellers' },
-    { image: '/images/imgi_17_68d67f5c6342b6c7ed37d668_products-14.png', name: 'Soft pretzels', reviews: '235 reviews', price: '$ 4.64 USD',Category:'Best Sellers'  },
-    { image: '/images/imgi_19_68d67fe4ab262b4e4de1a29e_products-18.png', name: 'Baguette soft breads', reviews: '380 reviews', price: '$ 14.84 USD',Category:'Best Sellers'  },
-    { image: '/images/imgi_21_68d680689c9187b6a5e053c9_products-10.png', name: 'Chocolate hazelnut cannoli', reviews: '120 reviews', price: '$ 3.24 USD',Category:'Best Sellers'  },
-    { image: '/images/imgi_23_68d680bf793abc58efc73b0b_products-9.png', name: 'Almond croissant', reviews: '436 reviews', price: '$ 6.72USD' ,Category:'Fresh Bakes' },
-    { image: '/images/imgi_24_68d680fb088131fe616531ec_products-6.png', name: 'Croissant au beurre', reviews: '175 reviews', price: '$ 12.14 USD',Category:'Fresh Bakes'  },
-    { image: '/images/imgi_25_68d681a85087e2bb9ab99aa8_products-3.png', name: 'Chiffon pie', reviews: '110 reviews', price: '$ 7.84 USD',Category:'Fresh Bakes'  },
-    { image: '/images/imgi_27_68d682231da4a1c391d1d7be_products-15.png', name: 'Focaccia genovese', reviews: '092 reviews', price: '$ 13.84 USD',Category:'Fresh Bakes'  },
+    { image: '/images/imgi_15_68d67ed24708b3054414f063_products-1.png', name: 'Oatmeal raisin cookies', reviews: '146 reviews', price: '$ 3.84 USD', Category: 'Best Sellers' },
+    { image: '/images/imgi_17_68d67f5c6342b6c7ed37d668_products-14.png', name: 'Soft pretzels', reviews: '235 reviews', price: '$ 4.64 USD', Category: 'Best Sellers' },
+    { image: '/images/imgi_19_68d67fe4ab262b4e4de1a29e_products-18.png', name: 'Baguette soft breads', reviews: '380 reviews', price: '$ 14.84 USD', Category: 'Best Sellers' },
+    { image: '/images/imgi_21_68d680689c9187b6a5e053c9_products-10.png', name: 'Chocolate hazelnut cannoli', reviews: '120 reviews', price: '$ 3.24 USD', Category: 'Best Sellers' },
+    { image: '/images/imgi_23_68d680bf793abc58efc73b0b_products-9.png', name: 'Almond croissant', reviews: '436 reviews', price: '$ 6.72USD', Category: 'Fresh Bakes' },
+    { image: '/images/imgi_24_68d680fb088131fe616531ec_products-6.png', name: 'Croissant au beurre', reviews: '175 reviews', price: '$ 12.14 USD', Category: 'Fresh Bakes' },
+    { image: '/images/imgi_25_68d681a85087e2bb9ab99aa8_products-3.png', name: 'Chiffon pie', reviews: '110 reviews', price: '$ 7.84 USD', Category: 'Fresh Bakes' },
+    { image: '/images/imgi_27_68d682231da4a1c391d1d7be_products-15.png', name: 'Focaccia genovese', reviews: '092 reviews', price: '$ 13.84 USD', Category: 'Fresh Bakes' },
   ]
 
- const filterData=product.filter(sl => selectedCategory == 'all' ? true : sl.Category == selectedCategory)
+  const filterData = product.filter(sl => selectedCategory == 'all' ? true : sl.Category == selectedCategory)
 
 
-//  const filterData = product.filter(sl => {
-//   if (selectedCategory === 'all') {
-//     return true;
-//   }
-//   return sl.Category === selectedCategory;
-// });
-//   console.log('filterData',filterData)
+  //  const filterData = product.filter(sl => {
+  //   if (selectedCategory === 'all') {
+  //     return true;
+  //   }
+  //   return sl.Category === selectedCategory;
+  // });
+  //   console.log('filterData',filterData)
 
   const item = [
     { image: '/images/imgi_15_68d67ed24708b3054414f063_products-1.png', name: 'Oatmeal raisin cookies', reviews: '146 reviews', price: '$ 3.84 USD' },
@@ -102,7 +113,7 @@ export default function Homepage() {
               <div className='lg:flex lg:gap-8  space-y-2 pt-8 text-[#290a03] font-semibold'>
                 <div className='flex gap-3 items-center'>
                   <img src="/images/imgi_18_68d51a5d772c066d09230f90_about-3.png" alt="" className='w-12 h-12 rounded-full' />
-                <p>Our master plan up 200 year old</p></div>
+                  <p>Our master plan up 200 year old</p></div>
                 <p className='underline underline-offset-2'>What we are dishing out?</p>
               </div>
             </div>
@@ -117,7 +128,7 @@ export default function Homepage() {
               <div className='flex gap-4 flex-wrap ml-10 '>
 
                 {names.map((data, index) => (
-                  <div key={index} className='group flex items-center gap-7 rounded-full hover:cursor-pointer bg-white p-2 px-4 lg:pl-7 font-semibold hover:bg-amber-400 duration-500'>
+                  <div onClick={()=>data1(data.name)} key={index} className='group flex items-center gap-7 rounded-full hover:cursor-pointer bg-white p-2 px-4 lg:pl-7 font-semibold hover:bg-amber-400 duration-500'>
                     <h1 className=' text-[#290a03] font-bold'>{data.name}</h1>
                     <div className="h-10 w-10 bg-[#f5ece4] lg:flex items-center justify-center rounded-full group-hover:bg-amber-950 group-hover:text-white hidden ">
                       <p className=''>{data.no}</p>
@@ -137,9 +148,9 @@ export default function Homepage() {
             <div className=' md:flex justify-between '>
               <h1 className='lg:text-4xl text-2xl font-bold text-[#290a03]'>List of our products</h1>
               <div className='flex gap-4 text-sm pt-4 *:cursor-pointer'>
-                <button onClick={()=>setSelectedCategory('all')} className={`border border-none  w-30 rounded-full px-2 p-2 ${selectedCategory=='all' ? 'bg-amber-400': 'bg-[#f4ebe2]' }  text-center text-[#290a03] hover:bg-[#290a03] hover:text-white font-medium`}>All Products</button>
-                <button onClick={()=>setSelectedCategory('Best Sellers')} className={`border border-none  w-30 rounded-full px-2 p-2 ${selectedCategory=='Best Sellers' ? 'bg-amber-400': 'bg-[#f4ebe2]' }  text-center text-[#290a03] hover:bg-[#290a03] hover:text-white font-medium`}>Best Sellers</button>
-                <button onClick={()=>setSelectedCategory('Fresh Bakes')} className={`border border-none  w-30 rounded-full px-2 p-2 ${selectedCategory=='Fresh Bakes' ? 'bg-amber-400': 'bg-[#f4ebe2]' }  text-center text-[#290a03] hover:bg-[#290a03] hover:text-white font-medium`}>Fresh Bakes</button>
+                <button onClick={() => setSelectedCategory('all')} className={`border border-none  w-30 rounded-full px-2 p-2 ${selectedCategory == 'all' ? 'bg-amber-400' : 'bg-[#f4ebe2]'}  text-center text-[#290a03] hover:bg-[#290a03] hover:text-white font-medium`}>All Products</button>
+                <button onClick={() => setSelectedCategory('Best Sellers')} className={`border border-none  w-30 rounded-full px-2 p-2 ${selectedCategory == 'Best Sellers' ? 'bg-amber-400' : 'bg-[#f4ebe2]'}  text-center text-[#290a03] hover:bg-[#290a03] hover:text-white font-medium`}>Best Sellers</button>
+                <button onClick={() => setSelectedCategory('Fresh Bakes')} className={`border border-none  w-30 rounded-full px-2 p-2 ${selectedCategory == 'Fresh Bakes' ? 'bg-amber-400' : 'bg-[#f4ebe2]'}  text-center text-[#290a03] hover:bg-[#290a03] hover:text-white font-medium`}>Fresh Bakes</button>
               </div>
             </div>
           </div>
@@ -150,7 +161,7 @@ export default function Homepage() {
                 <img className='rounded-3xl' src={item.image} alt="" />
                 <div className="">
                   <div className='lg:ml-4'>
-                    <h1 className='text-lg font-semibold text-[#290a03] pt-3 sm:flex-nowrap'>{item.name}</h1>
+                    <h1 className='text-lg font-semibold text-[#290a03] line-clamp-1 pt-3 sm:flex-nowrap'>{item.name}</h1>
                     <div className='flex justify-between items-center pt-2 gap-2 lg:gap-4'>
                       <div className='flex text-amber-500 text-center '>
                         <FaStar className='h-4 w-4 ' /> <FaStar className='h-4 w-4 ' /> <FaStar className='h-4 w-4 ' /> <FaStar className='h-4 w-4 ' /> <FaStar className='h-4 w-4 ' />
@@ -195,7 +206,7 @@ export default function Homepage() {
               </div>
               <div className='flex gap-6 items-center cursor-pointer rounded-full w-40 p-3 bg-amber-400 text-[#290a03] font-semibold hover:bg-[#290a03] hover:text-amber-300'>
                 <GoDotFill />
-                <h1>Contact Us</h1>
+                <Link to={'/contact'}><h1>Contact Us</h1></Link>
               </div>
             </div>
 
@@ -233,19 +244,19 @@ export default function Homepage() {
             <h1 className='lg:text-5xl text-xl  font-bold px-2 text-center pt-15 text-[#290a03] bellota-text'>Why bakery's items is so special to our happy customer?</h1>
           </div>
 
-          <div className=' grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-12 max-w-400 mx-auto lg:gap-10 gap-4 px-4   sm:pt-10'>
+          <div className=' grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-12 max-w-400 mx-auto lg:gap-10 gap-2 px-4   sm:pt-10'>
 
-            <div className="bg-[url(/images/imgi_36_68d51bcde5970647b0d24e45_discount-1.png)] lg:col-span-3 lg:min-h-30 min-h-100  bg-cover lg:my-20 order-2 rounded-3xl sm:order-1 ">
-              <div className=' text-center space-y-4'>
-                <div className='flex gap-2  lg:mx-15 mx-30 pt-5 flex-nowrap '>
-                  <h1 className='lg:text-5xl text-lg sm:text-xl font-bold text-white'>Fresh</h1>
-                  <h1 className='lg:text-5xl text-lg sm:text-xl font-bold text-amber-400'>baked</h1>
+            <div className="bg-[url(/images/imgi_36_68d51bcde5970647b0d24e45_discount-1.png)] lg:col-span-3 lg:min-h-30 min-h-100  bg-center bg-cover lg:my-20 order-2 rounded-3xl sm:order-1 ">
+              <div className=' text-center  space-y-4'>
+                <div className='flex gap-2  md:mx-22 mx-30 pt-5 flex-nowrap  md:flex-wrap '>
+                  <h1 className='lg:text-3xl text-lg sm:text-xl  font-bold text-white'>Fresh</h1>
+                  <h1 className='lg:text-3xl text-lg sm:text-xl font-bold text-amber-400'>baked</h1>
                 </div>
-                <Link className='lg:text-xl text-sm underline sm:text-xl underline-offset-2 lg:ml-18  font-bold text-white'>Order now</Link>
+                <Link className='lg:text-xl text-sm underline sm:text-xl underline-offset-2    font-bold text-white'>Order now</Link>
               </div>
             </div>
 
-            <div className="bg-[url(/images/imgi_37_68d51bcd55f255d282122024_discount-2.png)] rounded-3xl lg:col-span-5 sm:col-span-2 sm:min-h-180 min-h-100 bg-cover order-3 sm:order-3 lg:order-2 ">
+            <div className="bg-[url(/images/imgi_37_68d51bcd55f255d282122024_discount-2.png)] rounded-3xl lg:col-span-5 bg-center sm:col-span-2 sm:min-h-180 min-h-100 bg-cover order-3 sm:order-3 lg:order-2 ">
               <div className='text-center pt-10 sm:space-y-8 space-y-4 mx-auto'>
                 <h1 className='lg:text-5xl text-3xl font-bold text-white'>Buy one get one</h1>
                 <h1 className='sm:text-8xl text-3xl font-bold text-amber-400 text-center'>Free</h1>
@@ -256,7 +267,7 @@ export default function Homepage() {
               <div className='lg:flex flex-row '>
                 <img src="/images/imgi_38_68d51a5df00a6ea58c217943_about-2.png" alt="" className='w-full rounded-3xl h-60 object-center object-cover lg:block hidden' />
               </div>
-              <div className="bg-[url(/images/imgi_39_68d51bcde83766b86c361bba_discount-3.png)] bg-cover min-h-64 lg:min-h-100 sm:min-h-[] rounded-3xl ">
+              <div className="bg-[url(/images/imgi_39_68d51bcde83766b86c361bba_discount-3.png)] bg-cover bg-center min-h-64 lg:min-h-100 sm:min-h-[] rounded-3xl ">
                 <div className='lg:space-y-6 space-y-2 sm:pt-20 pt-5 pl-10 py-10'>
                   <h1 className='text-5xl  text-amber-300 font-bold'>25% off</h1>
                   <p className='lg:text-4xl text-2xl  text-white font-bold '>Test the real <br />baked items.</p>
@@ -318,7 +329,7 @@ export default function Homepage() {
                 <div className=' p-2 rounded-4xl pl-2 bg-linear-to-b from-white mx-2 to-[#f4ebe2] hover:from-[#f4ebe2] '>
                   <img className='rounded-3xl w-full' src={product.image} alt="" />
                   <div className='ml-4'>
-                    <h1 className='lg:text-2xl text-lg font-semibold text-[#290a03] pt-3'>{product.name}</h1>
+                    <h1 className='lg:text-2xl text-lg font-semibold text-[#290a03] line-clamp-1 pt-3'>{product.name}</h1>
                     <div className='flex justify-between pt-2 sm:gap-2 lg:gap-4'>
                       <div className='flex text-amber-500 '><FaStar className='h-3 w-3 lg:h-6 lg:w-6' /> <FaStar className='h-3 w-3 lg:h-6 lg:w-6' /> <FaStar className='h-3 w-3 lg:h-6 lg:w-6' /><FaStar className='h-3 w-3 lg:h-6 lg:w-6' /><FaStar className='h-3 w-3 lg:h-6 lg:w-6' /></div>
                       <p className='text-gray-500 text-sm lg:text-base'>{product.reviews}</p>
@@ -344,7 +355,7 @@ export default function Homepage() {
 
         <div className='max-w-360 px-2 lg:mx-auto pt-10 mx-4 grid lg:grid-cols-3 lg:gap-10 gap-4  grid-cols-1  sm:grid-cols-2'>
           {person.map((set, index) => {
-           return (
+            return (
               <div className='bg-[#f4ebe2] rounded-3xl p-6 space-y-4'>
                 <h1 className='lg:text-lg text-[15px] font-bold  text-[#290a03] bellota-text' >{set.text}</h1>
                 <img src={set.img} className='rounded-3xl w-full ' alt="" />

@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 
 export default function Header() {
     const [menu, setMenu] = useState(false)
-    console.log(menu)
 
     return (
         <>
@@ -23,7 +22,7 @@ export default function Header() {
                         <div id='abc' className={` ${menu ? '' : 'hidden lg:flex'} flex  list-none gap-5 font-semibold  text-[#290a03] text-lg absolute left-0 px-10 p-5 text-nowrap bg-[#f4ebe2] w-full top-20 flex-col lg:static lg:bg-transparent lg:w-fit lg:flex-row`}>
                             <Link to={'/'}><li >Home</li></Link>
                             <Link to={'/about'}><li>About</li></Link>
-                            <Link to={'/#'}><li>Pages</li></Link>
+                            <Link to={'/blog'}><li>Blog</li></Link>
                             <Link to={'/menu'}><li>Our Menu</li></Link>
                          <Link to={'/contact'}> <li>Contact</li></Link>
                         </div>

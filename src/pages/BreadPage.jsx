@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import { FaStar } from 'react-icons/fa'
 import { GoDotFill } from 'react-icons/go'
+import { useLocation } from 'react-router-dom'
 
 export default function BreadPage() {
+  const location = useLocation()
+  const [selectedCategory, setSelectedCategory] = useState(location.state || 'Breads')
 
-  const [selectedCategory, setSelectedCategory] = useState('Breads')
 
   const product = [
     { image: '/images/imgi_19_68d67fe4ab262b4e4de1a29e_products-18.png', name: 'Baguette soft breads', reviews: '146 reviews', price: '$ 3.84 USD', categoty: 'Breads' },
@@ -19,8 +21,8 @@ export default function BreadPage() {
     { image: '/images/imgi_5_68d68b0020515e48e5ae7aa1_categories-4.png', name: 'Black forest cake', reviews: '380 reviews', price: '$ 14.84 USD', categoty: 'Cake' },
     { image: '/images/imgi_16_68d68390db2b13516e3d193e_products-4.png', name: 'Chocolate hazelnut cannoli', reviews: '380 reviews', price: '$ 14.84 USD', categoty: 'Pastries' },
     { image: '/images/imgi_21_68d680689c9187b6a5e053c9_products-10.png', name: 'Choux pastry puffs', reviews: '380 reviews', price: '$ 14.84 USD', categoty: 'Pastries' },
-    { image: '/images/imgi_23_68d680bf793abc58efc73b0b_products-9.png', name: 'Almond croissant', reviews: '380 reviews', price: '$ 14.84 USD', categoty: 'Croissants' },
-    { image: '/images/imgi_24_68d680fb088131fe616531ec_products-6.png', name: 'Croissant au beurre', reviews: '380 reviews', price: '$ 14.84 USD', categoty: 'Croissants' },
+    { image: '/images/imgi_23_68d680bf793abc58efc73b0b_products-9.png', name: 'Almond croissant', reviews: '380 reviews', price: '$ 14.84 USD', categoty: 'Croissant' },
+    { image: '/images/imgi_24_68d680fb088131fe616531ec_products-6.png', name: 'Croissant au beurre', reviews: '380 reviews', price: '$ 14.84 USD', categoty: 'Croissant' },
     { image: '/images/imgi_25_68d681a85087e2bb9ab99aa8_products-3.png', name: 'Chiffon pie', reviews: '380 reviews', price: '$ 14.84 USD', categoty: 'Pie' },
     { image: '/images/imgi_14_68d681ce2bed7d3bd6dbb082_products-8.png', name: 'Butterscotch pie', reviews: '380 reviews', price: '$ 14.84 USD', categoty: 'Pie' },
     { image: '/images/imgi_27_68d682231da4a1c391d1d7be_products-15.png', name: 'Focaccia genovese', reviews: '380 reviews', price: '$ 14.84 USD', categoty: 'Focaccia' },
@@ -28,9 +30,6 @@ export default function BreadPage() {
   ]
 
   const filterData = product.filter(dt => dt.categoty == selectedCategory)
-
-  console.log('filterData', filterData)
-
 
   return (
     <>
@@ -44,14 +43,14 @@ export default function BreadPage() {
       </div>
       <div className='max-w-280 mx-auto flex justify-between px-4'>
         <div className='flex gap-4 text-xl pt-4 *:cursor-pointer flex-wrap'>
-          <button onClick={() => setSelectedCategory('Breads')} className={`border border-none  w-25 rounded-full px-2 p-4 ${selectedCategory == 'Breads' ? 'bg-amber-400' : 'bg-[#f4ebe2]' }   text-center text-[#290a03] hover:bg-[#290a03] hover:text-white font-medium`}>Breads</button>
-          <button onClick={() => setSelectedCategory('Cookies')} className={`border border-none bg-[#f4ebe2] w-30 rounded-full ${selectedCategory == 'Cookies' ? 'bg-amber-400' : 'bg-[#f4ebe2]' } p-4 font-medium text-center text-[#290a03]  hover:bg-[#290a03] hover:text-white`}>Cookies</button>
-          <button onClick={() => setSelectedCategory('Pretzel')} className={`border border-none bg-[#f4ebe2] w-30 rounded-full p-4 font-medium text-center ${selectedCategory=='Pretzel' ? 'bg-amber-400':'bg-[#f4ebe2]'} text-[#290a03] hover:bg-[#290a03] hover:text-white`}>Pretzel</button>
-          <button onClick={() => setSelectedCategory('Cake')} className={`border border-none bg-[#f4ebe2] w-30 rounded-full p-4 font-medium text-center ${selectedCategory=='Cake' ? 'bg-amber-400':'bg-[#f4ebe2]'} text-[#290a03] hover:bg-[#290a03] hover:text-white`}>Cake</button>
-          <button onClick={() => setSelectedCategory('Pastries')} className={`border border-none bg-[#f4ebe2] w-30 rounded-full p-4 font-medium text-center ${selectedCategory=='Pastries' ? 'bg-amber-400':'bg-[#f4ebe2]'} text-[#290a03] hover:bg-[#290a03] hover:text-white`}>Pastries</button>
-          <button  onClick={() => setSelectedCategory('Croissants')} className={`border border-none bg-[#f4ebe2] w-30 rounded-full p-4 font-medium text-center ${selectedCategory=='Croissants' ? 'bg-amber-400':'bg-[#f4ebe2]'} text-[#290a03] hover:bg-[#290a03] hover:text-white`}>Croissant</button>
-          <button onClick={() => setSelectedCategory('Pie')} className={`border border-none bg-[#f4ebe2] w-30 rounded-full p-4 font-medium text-center ${selectedCategory=='Pie' ? 'bg-amber-400':'bg-[#f4ebe2]'} text-[#290a03] hover:bg-[#290a03] hover:text-white`}>Pie</button>
-          <button onClick={() => setSelectedCategory('Focaccia')} className={`border border-none bg-[#f4ebe2] w-30 rounded-full p-4 font-medium text-center ${selectedCategory=='Focaccia' ? 'bg-amber-400':'bg-[#f4ebe2]'} text-[#290a03] hover:bg-[#290a03] hover:text-white`}>Focaccia</button>
+          <button onClick={() => setSelectedCategory('Breads')} className={`border border-none  w-25 rounded-full px-2 p-4 ${selectedCategory == 'Breads' ? 'bg-amber-400' : 'bg-[#f4ebe2]'}   text-center text-[#290a03] hover:bg-[#290a03] hover:text-white font-medium`}>Breads</button>
+          <button onClick={() => setSelectedCategory('Cookies')} className={`border border-none bg-[#f4ebe2] w-30 rounded-full ${selectedCategory == 'Cookies' ? 'bg-amber-400' : 'bg-[#f4ebe2]'} p-4 font-medium text-center text-[#290a03]  hover:bg-[#290a03] hover:text-white`}>Cookies</button>
+          <button onClick={() => setSelectedCategory('Pretzel')} className={`border border-none bg-[#f4ebe2] w-30 rounded-full p-4 font-medium text-center ${selectedCategory == 'Pretzel' ? 'bg-amber-400' : 'bg-[#f4ebe2]'} text-[#290a03] hover:bg-[#290a03] hover:text-white`}>Pretzel</button>
+          <button onClick={() => setSelectedCategory('Cake')} className={`border border-none bg-[#f4ebe2] w-30 rounded-full p-4 font-medium text-center ${selectedCategory == 'Cake' ? 'bg-amber-400' : 'bg-[#f4ebe2]'} text-[#290a03] hover:bg-[#290a03] hover:text-white`}>Cake</button>
+          <button onClick={() => setSelectedCategory('Pastries')} className={`border border-none bg-[#f4ebe2] w-30 rounded-full p-4 font-medium text-center ${selectedCategory == 'Pastries' ? 'bg-amber-400' : 'bg-[#f4ebe2]'} text-[#290a03] hover:bg-[#290a03] hover:text-white`}>Pastries</button>
+          <button onClick={() => setSelectedCategory('Croissant')} className={`border border-none bg-[#f4ebe2] w-30 rounded-full p-4 font-medium text-center ${selectedCategory == 'Croissant' ? 'bg-amber-400' : 'bg-[#f4ebe2]'} text-[#290a03] hover:bg-[#290a03] hover:text-white`}>Croissant</button>
+          <button onClick={() => setSelectedCategory('Pie')} className={`border border-none bg-[#f4ebe2] w-30 rounded-full p-4 font-medium text-center ${selectedCategory == 'Pie' ? 'bg-amber-400' : 'bg-[#f4ebe2]'} text-[#290a03] hover:bg-[#290a03] hover:text-white`}>Pie</button>
+          <button onClick={() => setSelectedCategory('Focaccia')} className={`border border-none bg-[#f4ebe2] w-30 rounded-full p-4 font-medium text-center ${selectedCategory == 'Focaccia' ? 'bg-amber-400' : 'bg-[#f4ebe2]'} text-[#290a03] hover:bg-[#290a03] hover:text-white`}>Focaccia</button>
         </div>
       </div>
       <div className='max-w-360 mx-auto px-4'>

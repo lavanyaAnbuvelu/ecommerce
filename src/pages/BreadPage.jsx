@@ -9,27 +9,27 @@ export default function BreadPage() {
 
 
   const product = [
-    { image: '/images/imgi_19_68d67fe4ab262b4e4de1a29e_products-18.png', name: 'Baguette soft breads', reviews: '146 reviews', price: '$ 3.84 USD', categoty: 'Breads' },
-    { image: '/images/imgi_23_68d680bf793abc58efc73b0b_products-9.png', name: 'Custard breads', reviews: '235 reviews', price: '$ 4.64 USD', categoty: 'Breads' },
-    { image: '/images/imgi_19_68d67fe4ab262b4e4de1a29e_products-18.png', name: 'Baguette soft breads', reviews: '380 reviews', price: '$ 14.84 USD', categoty: 'Breads' },
-    { image: '/images/imgi_15_68d67ed24708b3054414f063_products-1.png', name: 'Oatmeal raisin cookies', reviews: '380 reviews', price: '$ 14.84 USD', categoty: 'Cookies' },
-    { image: '/images/imgi_15_68d68263136da5a12edcf61f_products-12.png', name: 'Gingerbread cookies', reviews: '380 reviews', price: '$ 14.84 USD', categoty: 'Cookies' },
-    { image: '/images/imgi_13_68d67f16548ed4eaba4ddf58_products-17.png', name: 'Chocolate chip cookies', reviews: '380 reviews', price: '$ 14.84 USD', categoty: 'Cookies' },
-    { image: '/images/imgi_17_68d67f5c6342b6c7ed37d668_products-14.png', name: 'Soft pretzels', reviews: '380 reviews', price: '$ 14.84 USD', categoty: 'Pretzel' },
-    { image: '/images/imgi_14_68d67fa7c1577d919bb48d61_products-7.png', name: 'Cinnamon pretzels', reviews: '380 reviews', price: '$ 14.84 USD', categoty: 'Pretzel' },
-    { image: '/images/imgi_14_68d6832f8b361fa4e1fab8f4_products-13.png', name: 'Chocolate cake', reviews: '380 reviews', price: '$ 14.84 USD', categoty: 'Cake' },
-    { image: '/images/imgi_5_68d68b0020515e48e5ae7aa1_categories-4.png', name: 'Black forest cake', reviews: '380 reviews', price: '$ 14.84 USD', categoty: 'Cake' },
-    { image: '/images/imgi_16_68d68390db2b13516e3d193e_products-4.png', name: 'Chocolate hazelnut cannoli', reviews: '380 reviews', price: '$ 14.84 USD', categoty: 'Pastries' },
-    { image: '/images/imgi_21_68d680689c9187b6a5e053c9_products-10.png', name: 'Choux pastry puffs', reviews: '380 reviews', price: '$ 14.84 USD', categoty: 'Pastries' },
-    { image: '/images/imgi_23_68d680bf793abc58efc73b0b_products-9.png', name: 'Almond croissant', reviews: '380 reviews', price: '$ 14.84 USD', categoty: 'Croissant' },
-    { image: '/images/imgi_24_68d680fb088131fe616531ec_products-6.png', name: 'Croissant au beurre', reviews: '380 reviews', price: '$ 14.84 USD', categoty: 'Croissant' },
-    { image: '/images/imgi_25_68d681a85087e2bb9ab99aa8_products-3.png', name: 'Chiffon pie', reviews: '380 reviews', price: '$ 14.84 USD', categoty: 'Pie' },
-    { image: '/images/imgi_14_68d681ce2bed7d3bd6dbb082_products-8.png', name: 'Butterscotch pie', reviews: '380 reviews', price: '$ 14.84 USD', categoty: 'Pie' },
-    { image: '/images/imgi_27_68d682231da4a1c391d1d7be_products-15.png', name: 'Focaccia genovese', reviews: '380 reviews', price: '$ 14.84 USD', categoty: 'Focaccia' },
-    { image: '/images/imgi_14_68d6809c139ef3cd1f1a7106_products-16.png', name: 'Focaccia di recco', reviews: '380 reviews', price: '$ 14.84 USD', categoty: 'Focaccia' },
+    { img1: '/images/imgi_19_68d67fe4ab262b4e4de1a29e_products-18.png',img2: '/images/imgi_21_68d51c5fa2dde26b3dad27a3_instagram-5.png', name: 'Baguette soft breads', reviews: '146 reviews', price: '$ 3.84 USD', Category: 'Breads' },
+    { img1: '/images/imgi_23_68d680bf793abc58efc73b0b_products-9.png',img2: '/images/imgi_14_68d67fa7c1577d919bb48d61_products-7.png', name: 'Custard breads', reviews: '235 reviews', price: '$ 4.64 USD', Category:'Breads' },
+    { img1: '/images/imgi_19_68d67fe4ab262b4e4de1a29e_products-18.png',img2: '/images/imgi_19_68d67fe4ab262b4e4de1a29e_products-18.png', name: 'Baguette soft breads', reviews: '380 reviews', price: '$ 14.84 USD', Category: 'Breads' },
+    { img1: '/images/imgi_15_68d67ed24708b3054414f063_products-1.png',  img2: '/images/imgi_14_68d6809c139ef3cd1f1a7106_products-16.png',name: 'Oatmeal raisin cookies', reviews: '380 reviews', price: '$ 14.84 USD', Category:'Cookies' },
+    { img1: '/images/imgi_15_68d68263136da5a12edcf61f_products-12.png',img2: '/images/imgi_24_68d680fb088131fe616531ec_products-6.png', name: 'Gingerbread cookies', reviews: '380 reviews', price: '$ 14.84 USD', Category:'Cookies' },
+    { img1: '/images/imgi_13_68d67f16548ed4eaba4ddf58_products-17.png',img2: '/images/imgi_17_68d67f5c6342b6c7ed37d668_products-14.png', name: 'Chocolate chip cookies', reviews: '380 reviews', price: '$ 14.84 USD', Category: 'Cookies' },
+    { img1: '/images/imgi_17_68d67f5c6342b6c7ed37d668_products-14.png', img2: '/images/imgi_14_68d681ce2bed7d3bd6dbb082_products-8.png', name: 'Soft pretzels', reviews: '380 reviews', price: '$ 14.84 USD', Category: 'Pretzel' },
+    { img1: '/images/imgi_14_68d67fa7c1577d919bb48d61_products-7.png', img2: '/images/imgi_27_68d682231da4a1c391d1d7be_products-15.png', name: 'Cinnamon pretzels', reviews: '380 reviews', price: '$ 14.84 USD', Category:'Pretzel' },
+    { img1: '/images/imgi_14_68d6832f8b361fa4e1fab8f4_products-13.png', img2: '/images/imgi_27_68d682231da4a1c391d1d7be_products-15.png', name: 'Chocolate cake', reviews: '380 reviews', price: '$ 14.84 USD', Category: 'Cake' },
+    { img1: '/images/imgi_5_68d68b0020515e48e5ae7aa1_categories-4.png',  img2: '/images/imgi_27_68d682231da4a1c391d1d7be_products-15.png', name: 'Black forest cake', reviews: '380 reviews', price: '$ 14.84 USD', Category:'Cake' },
+    { img1: '/images/imgi_16_68d68390db2b13516e3d193e_products-4.png', img2: '/images/imgi_27_68d682231da4a1c391d1d7be_products-15.png', name: 'Chocolate hazelnut cannoli', reviews: '380 reviews', price: '$ 14.84 USD', Category: 'Pastries' },
+    { img1: '/images/imgi_21_68d680689c9187b6a5e053c9_products-10.png', img2: '/images/imgi_27_68d682231da4a1c391d1d7be_products-15.png', name: 'Choux pastry puffs', reviews: '380 reviews', price: '$ 14.84 USD', Category:'Pastries' },
+    { img1: '/images/imgi_23_68d680bf793abc58efc73b0b_products-9.png', img2: '/images/imgi_27_68d682231da4a1c391d1d7be_products-15.png', name: 'Almond croissant', reviews: '380 reviews', price: '$ 14.84 USD',Category: 'Croissant' },
+    { img1: '/images/imgi_24_68d680fb088131fe616531ec_products-6.png',  img2: '/images/imgi_27_68d682231da4a1c391d1d7be_products-15.png', name: 'Croissant au beurre', reviews: '380 reviews', price: '$ 14.84 USD', Category: 'Croissant' },
+    { img1: '/images/imgi_25_68d681a85087e2bb9ab99aa8_products-3.png',  img2: '/images/imgi_27_68d682231da4a1c391d1d7be_products-15.png', name: 'Chiffon pie', reviews: '380 reviews', price: '$ 14.84 USD', Category:'Pie' },
+    { img1: '/images/imgi_14_68d681ce2bed7d3bd6dbb082_products-8.png', img2: '/images/imgi_27_68d682231da4a1c391d1d7be_products-15.png', name: 'Butterscotch pie', reviews: '380 reviews', price: '$ 14.84 USD', Category: 'Pie' },
+    { img1: '/images/imgi_27_68d682231da4a1c391d1d7be_products-15.png', img2: '/images/imgi_27_68d682231da4a1c391d1d7be_products-15.png', name: 'Focaccia genovese', reviews: '380 reviews', price: '$ 14.84 USD',Category:'Focaccia' },
+    { img1: '/images/imgi_14_68d6809c139ef3cd1f1a7106_products-16.png', img2: '/images/imgi_27_68d682231da4a1c391d1d7be_products-15.png', name: 'Focaccia di recco', reviews: '380 reviews', price: '$ 14.84 USD', Category:'Focaccia' },
   ]
 
-  const filterData = product.filter(dt => dt.categoty == selectedCategory)
+  const filterData = product.filter(dt => dt. Category == selectedCategory)
 
   return (
     <>
@@ -56,8 +56,11 @@ export default function BreadPage() {
       <div className='max-w-360 mx-auto px-4'>
         <div className='pt-10 gap-4  lg:gap-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 '>
           {filterData.map((item, index) => (
-            <div key={index} className=' p-2 rounded-4xl pl-2 bg-linear-to-b from-[#f4ebe2] to-[#f4ebe2] lg:from-white lg:hover:from-[#f4ebe2] flex flex-col justify-between'>
-              <img className='rounded-3xl' src={item.image} alt="" />
+            <div key={index} className=' group p-2 rounded-4xl pl-2 bg-linear-to-b from-[#f4ebe2] to-[#f4ebe2] lg:from-white lg:hover:from-[#f4ebe2] flex flex-col justify-between'>
+               <div className='relative h-full' >
+                  <img className='rounded-3xl absolute w-full h-full opacity-0 group-hover:opacity-100 duration-300  ' src={item.img1} alt="" />
+                  <img className='rounded-3xl w-full h-full object-cover object-center' src={item.img2} alt="" />
+                </div>
               <div className="">
                 <div className='lg:ml-4'>
                   <h1 className='text-lg font-semibold text-[#290a03] pt-3 sm:flex-nowrap'>{item.name}</h1>

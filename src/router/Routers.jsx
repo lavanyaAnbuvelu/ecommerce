@@ -7,6 +7,7 @@ import AboutPage from '../pages/AboutPage'
 import BreadPage from '../pages/BreadPage'
 import Test from '../pages/Test'
 import Blog from '../pages/Blog'
+import OrderPage from '../pages/OrderPage'
 
 export default function Routers() {
   return (
@@ -20,6 +21,8 @@ export default function Routers() {
     <Route path='/menu' element={<BreadPage/>}/>
     <Route path='/test' element={<Test/>}/>
     <Route path='/blog' element={<Blog/>}/>
+    <Route path='/order' element={<OrderPage/>}/>
+
     </Route>
    </Routes>
    </BrowserRouter>

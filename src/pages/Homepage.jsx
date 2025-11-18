@@ -26,7 +26,7 @@ export default function Homepage() {
 
   const data1 = (text) => {
     console.log('data1')
-    navigate('/menu', { state:text })
+    navigate('/menu', { state: text })
   }
 
 
@@ -42,14 +42,14 @@ export default function Homepage() {
   ]
 
   const product = [
-    { image: '/images/imgi_15_68d67ed24708b3054414f063_products-1.png', name: 'Oatmeal raisin cookies', reviews: '146 reviews', price: '$ 3.84 USD', Category: 'Best Sellers' },
-    { image: '/images/imgi_17_68d67f5c6342b6c7ed37d668_products-14.png', name: 'Soft pretzels', reviews: '235 reviews', price: '$ 4.64 USD', Category: 'Best Sellers' },
-    { image: '/images/imgi_19_68d67fe4ab262b4e4de1a29e_products-18.png', name: 'Baguette soft breads', reviews: '380 reviews', price: '$ 14.84 USD', Category: 'Best Sellers' },
-    { image: '/images/imgi_21_68d680689c9187b6a5e053c9_products-10.png', name: 'Chocolate hazelnut cannoli', reviews: '120 reviews', price: '$ 3.24 USD', Category: 'Best Sellers' },
-    { image: '/images/imgi_23_68d680bf793abc58efc73b0b_products-9.png', name: 'Almond croissant', reviews: '436 reviews', price: '$ 6.72USD', Category: 'Fresh Bakes' },
-    { image: '/images/imgi_24_68d680fb088131fe616531ec_products-6.png', name: 'Croissant au beurre', reviews: '175 reviews', price: '$ 12.14 USD', Category: 'Fresh Bakes' },
-    { image: '/images/imgi_25_68d681a85087e2bb9ab99aa8_products-3.png', name: 'Chiffon pie', reviews: '110 reviews', price: '$ 7.84 USD', Category: 'Fresh Bakes' },
-    { image: '/images/imgi_27_68d682231da4a1c391d1d7be_products-15.png', name: 'Focaccia genovese', reviews: '092 reviews', price: '$ 13.84 USD', Category: 'Fresh Bakes' },
+    { img1: '/images/imgi_15_68d67ed24708b3054414f063_products-1.png', img2: '/images/imgi_21_68d51c5fa2dde26b3dad27a3_instagram-5.png', name: 'Oatmeal raisin cookies', reviews: '146 reviews', price: '$ 3.84 USD', Category: 'Best Sellers' },
+    { img1: '/images/imgi_17_68d67f5c6342b6c7ed37d668_products-14.png', img2: '/images/imgi_14_68d67fa7c1577d919bb48d61_products-7.png', name: 'Soft pretzels', reviews: '235 reviews', price: '$ 4.64 USD', Category: 'Best Sellers' },
+    { img1: '/images/imgi_21_68d51c5fa2dde26b3dad27a3_instagram-5.png', img2: '/images/imgi_19_68d67fe4ab262b4e4de1a29e_products-18.png', name: 'Baguette soft breads', reviews: '380 reviews', price: '$ 14.84 USD', Category: 'Best Sellers' },
+    { img1: '/images/imgi_21_68d680689c9187b6a5e053c9_products-10.png', img2: '/images/imgi_14_68d6809c139ef3cd1f1a7106_products-16.png', name: 'Chocolate hazelnut cannoli', reviews: '120 reviews', price: '$ 3.24 USD', Category: 'Best Sellers' },
+    { img1: '/images/imgi_23_68d680bf793abc58efc73b0b_products-9.png', img2: '/images/imgi_24_68d680fb088131fe616531ec_products-6.png', name: 'Almond croissant', reviews: '436 reviews', price: '$ 6.72USD', Category: 'Fresh Bakes' },
+    { img1: '/images/imgi_24_68d680fb088131fe616531ec_products-6.png', img2: '/images/imgi_17_68d67f5c6342b6c7ed37d668_products-14.png', name: 'Croissant au beurre', reviews: '175 reviews', price: '$ 12.14 USD', Category: 'Fresh Bakes' },
+    { img1: '/images/imgi_25_68d681a85087e2bb9ab99aa8_products-3.png', img2: '/images/imgi_14_68d681ce2bed7d3bd6dbb082_products-8.png', name: 'Chiffon pie', reviews: '110 reviews', price: '$ 7.84 USD', Category: 'Fresh Bakes' },
+    { img1: '/images/imgi_14_68d6809c139ef3cd1f1a7106_products-16.png', img2: '/images/imgi_27_68d682231da4a1c391d1d7be_products-15.png', name: 'Focaccia genovese', reviews: '092 reviews', price: '$ 13.84 USD', Category: 'Fresh Bakes' },
   ]
 
   const filterData = product.filter(sl => selectedCategory == 'all' ? true : sl.Category == selectedCategory)
@@ -64,11 +64,10 @@ export default function Homepage() {
   //   console.log('filterData',filterData)
 
   const item = [
-    { image: '/images/imgi_15_68d67ed24708b3054414f063_products-1.png', name: 'Oatmeal raisin cookies', reviews: '146 reviews', price: '$ 3.84 USD' },
-    { image: '/images/imgi_17_68d67f5c6342b6c7ed37d668_products-14.png', name: 'Soft pretzels', reviews: '235 reviews', price: '$ 4.64 USD' },
-    { image: '/images/imgi_19_68d67fe4ab262b4e4de1a29e_products-18.png', name: 'Baguette soft breads', reviews: '380 reviews', price: '$ 14.84 USD' },
-    { image: '/images/imgi_21_68d680689c9187b6a5e053c9_products-10.png', name: 'Chocolate hazelnut cannoli', reviews: '120 reviews', price: '$ 3.24 USD' },
-    { image: '/images/imgi_23_68d680bf793abc58efc73b0b_products-9.png', name: 'Almond croissant', reviews: '436 reviews', price: '$ 6.72USD' },
+    { img1: '/images/imgi_15_68d67ed24708b3054414f063_products-1.png', img2: '/images/imgi_21_68d51c5fa2dde26b3dad27a3_instagram-5.png', name: 'Oatmeal raisin cookies', reviews: '146 reviews', price: '$ 3.84 USD', Category: '' },
+    { img1: '/images/imgi_17_68d67f5c6342b6c7ed37d668_products-14.png', img2: '/images/imgi_14_68d67fa7c1577d919bb48d61_products-7.png', name: 'Soft pretzels', reviews: '235 reviews', price: '$ 4.64 USD', Category: '' },
+    { img1: '/images/imgi_21_68d51c5fa2dde26b3dad27a3_instagram-5.png', img2: '/images/imgi_19_68d67fe4ab262b4e4de1a29e_products-18.png', name: 'Baguette soft breads', reviews: '380 reviews', price: '$ 14.84 USD', Category: '' },
+    { img1: '/images/imgi_21_68d680689c9187b6a5e053c9_products-10.png', img2: '/images/imgi_14_68d6809c139ef3cd1f1a7106_products-16.png', name: 'Chocolate hazelnut cannoli', reviews: '120 reviews', price: '$ 3.24 USD', Category: '' },
 
   ]
 
@@ -105,7 +104,7 @@ export default function Homepage() {
           </div>
         </section>
 
-        <section className='pt-15 mx-4 lg:px-10'>
+        <section className='pt-5 mx-4 lg:px-10'>
           <div className='bg-[#f4ebe2] rounded-3xl max-w-7xl mx-auto lg:flex gap-10'>
             <div className='lg:w-140 p-5 lg:p-10'>
               <h1 className='lg:text-4xl text-xl font-bold bellota-text text-[#290a03]'>
@@ -128,7 +127,7 @@ export default function Homepage() {
               <div className='flex gap-4 flex-wrap ml-10 '>
 
                 {names.map((data, index) => (
-                  <div onClick={()=>data1(data.name)} key={index} className='group flex items-center gap-7 rounded-full hover:cursor-pointer bg-white p-2 px-4 lg:pl-7 font-semibold hover:bg-amber-400 duration-500'>
+                  <div onClick={() => data1(data.name)} key={index} className='group flex items-center gap-7 rounded-full hover:cursor-pointer bg-white p-2 px-4 lg:pl-7 font-semibold hover:bg-amber-400 duration-500'>
                     <h1 className=' text-[#290a03] font-bold'>{data.name}</h1>
                     <div className="h-10 w-10 bg-[#f5ece4] lg:flex items-center justify-center rounded-full group-hover:bg-amber-950 group-hover:text-white hidden ">
                       <p className=''>{data.no}</p>
@@ -157,8 +156,11 @@ export default function Homepage() {
 
           <div className='pt-10 gap-4  lg:gap-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 '>
             {filterData.map((item, index) => (
-              <div key={index} className=' p-2 rounded-4xl pl-2 bg-linear-to-b from-[#f4ebe2] to-[#f4ebe2] lg:from-white lg:hover:from-[#f4ebe2] flex flex-col justify-between'>
-                <img className='rounded-3xl' src={item.image} alt="" />
+              <div key={index} className='group p-2 rounded-4xl pl-2 bg-linear-to-b from-[#f4ebe2] to-[#f4ebe2] lg:from-white lg:hover:from-[#f4ebe2] flex flex-col justify-between'>
+                <div className='relative h-full' >
+                  <img className='rounded-3xl absolute w-full h-full opacity-0 group-hover:opacity-100 duration-300  ' src={item.img1} alt="" />
+                  <img className='rounded-3xl w-full h-full object-cover object-center' src={item.img2} alt="" />
+                </div>
                 <div className="">
                   <div className='lg:ml-4'>
                     <h1 className='text-lg font-semibold text-[#290a03] line-clamp-1 pt-3 sm:flex-nowrap'>{item.name}</h1>
@@ -169,11 +171,12 @@ export default function Homepage() {
                       <p className='text-gray-500 text-base text-center '>{item.reviews}</p>
                     </div>
                   </div>
-                  <div className=' group flex flex-col md:flex-row justify-center cursor-pointer relative rounded-full lg:gap-2 p-3 items-center mt-3 bg-white hover:bg-[#290a03] hover:text-white'>
-                    <GoDotFill className='absolute top-7 md:top-4 left-2' />
-                    <h1 className='text-[#290a03] font-bold group-hover:text-amber-300'>Order Now</h1>
-                    <p className='text-gray-500 font-semibold group-hover:text-white'>{item.price}</p>
-                  </div>
+                  <button className='w-full group/abc flex flex-col md:flex-row justify-center cursor-pointer relative rounded-full lg:gap-2 p-3 items-center mt-3 bg-white hover:text-white overflow-hidden'>
+                    {/* <GoDotFill className='absolute top-7 md:top-4 left-2 z-10' /> */}
+                    <h1 className='text-[#290a03] font-bold group-hover/abc:text-amber-300 z-10'>Order Now</h1>
+                    <p className='text-gray-500 font-semibold group-hover/abc:text-white z-10'>{item.price}</p>
+                    <div className="absolute bg-[#290a03] top-7 md:top-5 left-3 h-2 w-2 duration-700 rounded-full group-hover/abc:h-full group-hover/abc:w-full group-hover/abc:top-0 group-hover/abc:left-0 "></div>
+                  </button>
                 </div>
               </div>
             ))}
@@ -326,20 +329,24 @@ export default function Homepage() {
           >
             {item.map((product, index) => (
               <SwiperSlide key={index}>
-                <div className=' p-2 rounded-4xl pl-2 bg-linear-to-b from-white mx-2 to-[#f4ebe2] hover:from-[#f4ebe2] '>
-                  <img className='rounded-3xl w-full' src={product.image} alt="" />
+                <div className='group p-2 rounded-4xl pl-2 bg-linear-to-b from-white mx-2 to-[#f4ebe2] hover:from-[#f4ebe2] '>
+                  <div className='relative h-full' >
+                  <img className='rounded-3xl absolute w-full h-full opacity-0 group-hover:opacity-100 duration-300  ' src={product.img1} alt="" />
+                  <img className='rounded-3xl w-full h-full object-cover object-center' src={product.img2} alt="" />
+                </div>
                   <div className='ml-4'>
-                    <h1 className='lg:text-2xl text-lg font-semibold text-[#290a03] line-clamp-1 pt-3'>{product.name}</h1>
+                    <h1 className='lg:text-xl text-lg font-semibold text-[#290a03] line-clamp-1 pt-3'>{product.name}</h1>
                     <div className='flex justify-between pt-2 sm:gap-2 lg:gap-4'>
                       <div className='flex text-amber-500 '><FaStar className='h-3 w-3 lg:h-6 lg:w-6' /> <FaStar className='h-3 w-3 lg:h-6 lg:w-6' /> <FaStar className='h-3 w-3 lg:h-6 lg:w-6' /><FaStar className='h-3 w-3 lg:h-6 lg:w-6' /><FaStar className='h-3 w-3 lg:h-6 lg:w-6' /></div>
                       <p className='text-gray-500 text-sm lg:text-base'>{product.reviews}</p>
                     </div>
                   </div>
-                  <div className=' group flex flex-col md:flex-row justify-center cursor-pointer relative rounded-full lg:gap-2 p-3 items-center mt-3 bg-white hover:bg-[#290a03] hover:text-white'>
-                    <GoDotFill className='absolute top-7 md:top-4 left-2' />
-                    <h1 className='text-[#290a03] font-bold group-hover:text-amber-300'>Order Now</h1>
-                    <p className='text-gray-500 font-semibold group-hover:text-white'>{product.price}</p>
-                  </div>
+                  <button className='w-full group/abc flex flex-col md:flex-row justify-center cursor-pointer relative rounded-full lg:gap-2 p-3 items-center mt-3 bg-white hover:text-white overflow-hidden'>
+                    {/* <GoDotFill className='absolute top-7 md:top-4 left-2 z-10' /> */}
+                    <h1 className='text-[#290a03] font-bold group-hover/abc:text-amber-300 z-10'>Order Now</h1>
+                    <p className='text-gray-500 font-semibold group-hover/abc:text-white z-10'>{product.price}</p>
+                    <div className="absolute bg-[#290a03] top-7 md:top-5 left-3 h-2 w-2 duration-700 rounded-full group-hover/abc:h-full group-hover/abc:w-full group-hover/abc:top-0 group-hover/abc:left-0 "></div>
+                  </button>
                 </div>
               </SwiperSlide>
             ))}

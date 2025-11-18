@@ -10,10 +10,10 @@ export default function Blog() {
                         <p className='md:text-3xl text-2xl text-[#290a03] font-bold'>Honeycomb bakes a nature inspired name symbolizing sweetness and quality.</p>
                     </div>
                     <div className='space-y-4'>
-                        <p className='text-lg text-gray-500 font-medium'>The term often describes a cake, candy, or other dessert that features or is infused with the crisp, aerated sugar confection known as honeycomb or sponge toffee.</p>
-                        <div className='flex gap-4' >
-                            <p className='text-lg text-gray-500'>Follow us</p>
-                            <p className='text-lg text-[#290a03] font-semibold'>Facebook - Twitter - Instagram - Youtube</p></div>
+                        <p className='text-lg text-gray-500 hidden sm:block font-medium'>The term often describes a cake, candy, or other dessert that features or is infused with the crisp, aerated sugar confection known as honeycomb or sponge toffee.</p>
+                        <div className='sm:flex gap-4'>
+                            <p className='sm:text-lg text-sm text-gray-500'>Follow us</p>
+                            <p className='sm:text-lg text-sm text-[#290a03] font-semibold'>Facebook - Twitter - Instagram - Youtube</p></div>
                     </div>
                 </div>
                 <img src="/images/imgi_11_6904b3e08033dac4148421bb_blog-main-2.png" alt="" className='rounded-4xl pt-10 px-4' />

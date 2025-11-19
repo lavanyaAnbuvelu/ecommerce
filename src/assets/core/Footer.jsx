@@ -28,7 +28,7 @@ export default function Footer() {
                         <p className='text-gray-600 pt-2'>27th Street, 15th Floor, New York, NY 1010</p>
                         <p className='text-[#290a03] pt-2 underline font-semibold text-xl underline-offset-3 bellota-text' >Get direction</p>
                     </div>
-                    <div className='flex justify-around sm:10 mx-auto w-full lg:w-1/3 text-nowrap'>
+                    <div className='flex lg:justify-around lg:gap-0 gap-8 justify-start sm:10 mx-auto w-full lg:w-1/3 text-nowrap'>
                         <div>
                             <h1 className='text-xl text-[#290a03] font-medium mb-4 bellota-text'>Useful link</h1>
                             <div className='list-none font-semibold text-gray-500 space-y-1.5'>

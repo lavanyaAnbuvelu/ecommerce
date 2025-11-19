@@ -139,8 +139,8 @@ export default function AboutPage() {
                     </div>
                 </div>
             </div>
-            <div className='px-2 sm:px-4'>
-                <div className='max-w-220 mx-auto text-center  pt-10 lg:pt-20'>
+            <div className='px-2 max-w-360 mx-auto sm:px-4'>
+                <div className=' text-center  pt-10 lg:pt-20'>
                     <h1 className='text-4xl font-bold text-[#290a03] bellota-text'>What our fans say</h1>
                 </div>
                 <div className='max-w-360  lg:mx-auto mx-2 pt-5 lg:pt-15 grid lg:grid-cols-3 lg:gap-10 gap-4  grid-cols-1  sm:grid-cols-2'>

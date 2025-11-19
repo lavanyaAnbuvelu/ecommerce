@@ -16,6 +16,8 @@ import { BiCategory } from 'react-icons/bi';
 
 export default function Homepage() {
 
+  const maxItems = window.innerWidth < 700 ? 1 : window.innerWidth < 1000 ? 2 : 3;
+
   const [selectedCategory, setSelectedCategory] = useState('all')
 
   const location = useLocation()
@@ -30,6 +32,10 @@ export default function Homepage() {
   }
 
 
+
+    const data = (item) => {
+    navigate('/order',{state:item})
+  }
 
 
   const names = [
@@ -64,10 +70,11 @@ export default function Homepage() {
   //   console.log('filterData',filterData)
 
   const item = [
-    { img1: '/images/imgi_15_68d67ed24708b3054414f063_products-1.png', img2: '/images/imgi_21_68d51c5fa2dde26b3dad27a3_instagram-5.png', name: 'Oatmeal raisin cookies', reviews: '146 reviews', price: '$ 3.84 USD', Category: '' },
+    { img1: '/images/imgi_24_68d680fb088131fe616531ec_products-6.png', img2: '/images/imgi_17_68d67f5c6342b6c7ed37d668_products-14.png', name: 'Croissant au beurre', reviews: '146 reviews', price: '$ 3.84 USD', Category: '' },
     { img1: '/images/imgi_17_68d67f5c6342b6c7ed37d668_products-14.png', img2: '/images/imgi_14_68d67fa7c1577d919bb48d61_products-7.png', name: 'Soft pretzels', reviews: '235 reviews', price: '$ 4.64 USD', Category: '' },
     { img1: '/images/imgi_21_68d51c5fa2dde26b3dad27a3_instagram-5.png', img2: '/images/imgi_19_68d67fe4ab262b4e4de1a29e_products-18.png', name: 'Baguette soft breads', reviews: '380 reviews', price: '$ 14.84 USD', Category: '' },
     { img1: '/images/imgi_21_68d680689c9187b6a5e053c9_products-10.png', img2: '/images/imgi_14_68d6809c139ef3cd1f1a7106_products-16.png', name: 'Chocolate hazelnut cannoli', reviews: '120 reviews', price: '$ 3.24 USD', Category: '' },
+    { img1: '/images/imgi_14_68d6809c139ef3cd1f1a7106_products-16.png', img2: '/images/imgi_27_68d682231da4a1c391d1d7be_products-15.png', name: 'Focaccia genovese', reviews: '092 reviews', price: '$ 13.84 USD', Category: '' },
 
   ]
 
@@ -93,8 +100,8 @@ export default function Homepage() {
           </div>
           <div className=' flex flex-col lg:flex-row lg:gap-20 gap-10 max-w-360 mx-auto lg:p-10'>
             <div>
-              <h1 className='text-2xl md:text-4xl lg:text-6xl text-[#290a03] font-black pt-5 md:pt-10 bellota-text  lg:pt-15 hidden md:block'> Premium bread and cookies made from scratch</h1>
-              <div className=' rounded-full p-3 mt-8 w-40 items-center gap-3 font-semibold cursor-pointer flex outline-0 bg-amber-400 text-[#290a03] hover:bg-[#290a03] hover:text-amber-400' placeholder='View items'>
+              <h1 className='text-2xl md:text-4xl lg:text-6xl relative text-[#290a03] font-black pt-5 md:pt-10 bellota-text  lg:pt-15 hidden lg:block'> Premium bread and cookies made from scratch</h1>
+              <div className=' rounded-full p-3 mt-8 w-40 duration-500 items-center gap-3 font-semibold cursor-pointer flex outline-0 bg-amber-400 text-[#290a03] hover:bg-[#290a03] hover:text-amber-400' placeholder='View items'>
                 <GoDotFill /><h1>View items</h1>
               </div>
             </div>
@@ -127,12 +134,15 @@ export default function Homepage() {
               <div className='flex gap-4 flex-wrap ml-10 '>
 
                 {names.map((data, index) => (
-                  <div onClick={() => data1(data.name)} key={index} className='group flex items-center gap-7 rounded-full hover:cursor-pointer bg-white p-2 px-4 lg:pl-7 font-semibold hover:bg-amber-400 duration-500'>
-                    <h1 className=' text-[#290a03] font-bold'>{data.name}</h1>
-                    <div className="h-10 w-10 bg-[#f5ece4] lg:flex items-center justify-center rounded-full group-hover:bg-amber-950 group-hover:text-white hidden ">
-                      <p className=''>{data.no}</p>
+                  <div onClick={() => data1(data.name)} key={index} className='group relative overflow-hidden flex items-center gap-7 rounded-full hover:cursor-pointer bg-white p-2 px-4 lg:pl-7 font-semibold hover:bg-amber-400 duration-500'>
+                    <h1 className=' text-[#290a03] group-hover:text-white z-20 font-bold'>{data.name}</h1>
+                    {/* <div className="h-10 w-10 bg-[#f5ece4] lg:flex items-center justify-center rounded-full group-hover:bg-amber-950 group-hover:text-white hidden "> */}
+                      <p className='z-20 text-white hidden lg:block '>{data.no}</p>
+                    <div className='absolute right-0   rounded-full hidden lg:block bg-[#290a03]  duration-400 group-hover:w-full group-hover:h-full  w-10 h-10'>
+
                     </div>
-                  </div>
+                    </div>
+                  // </div>
                 ))}
 
               </div>
@@ -171,7 +181,7 @@ export default function Homepage() {
                       <p className='text-gray-500 text-base text-center '>{item.reviews}</p>
                     </div>
                   </div>
-                  <button className='w-full group/abc flex flex-col md:flex-row justify-center cursor-pointer relative rounded-full lg:gap-2 p-3 items-center mt-3 bg-white hover:text-white overflow-hidden'>
+                  <button onClick={() => data(item)} className='w-full  group/abc flex flex-col md:flex-row justify-center cursor-pointer relative rounded-full lg:gap-2 p-3 items-center mt-3 bg-white hover:text-white overflow-hidden'>
                     {/* <GoDotFill className='absolute top-7 md:top-4 left-2 z-10' /> */}
                     <h1 className='text-[#290a03] font-bold group-hover/abc:text-amber-300 z-10'>Order Now</h1>
                     <p className='text-gray-500 font-semibold group-hover/abc:text-white z-10'>{item.price}</p>
@@ -183,7 +193,7 @@ export default function Homepage() {
           </div>
         </section>
 
-        <section className='max-w-280 mx-auto lg:pt-20 pt-5 px-5 lg:px-10'>
+        <section className='max-w-7xl mx-auto lg:pt-20 pt-5 px-5 lg:px-10'>
           <div className='flex lg:flex-row flex-col  gap-6 lg:gap-14 '>
             <div>
               <img className='w-360 lg:h-120  rounded-4xl' src="/images/imgi_31_68d51a5d2c5faa43dc91cd66_about-1.png" alt="" />
@@ -212,8 +222,6 @@ export default function Homepage() {
                 <Link to={'/contact'}><h1>Contact Us</h1></Link>
               </div>
             </div>
-
-
           </div>
         </section>
         <div className='py-10 mt-15 bg-linear-to-b from-trasparent via-yellow-500 to-transparent'>
@@ -242,7 +250,7 @@ export default function Homepage() {
             </div>
           </Marquee>
         </div>
-        <sectoin className='max-w-220 mx-auto  '>
+        <sectoin className='max-w-360 mx-auto  '>
           <div>
             <h1 className='lg:text-5xl text-xl  font-bold px-2 text-center pt-15 text-[#290a03] bellota-text'>Why bakery's items is so special to our happy customer?</h1>
           </div>
@@ -282,7 +290,7 @@ export default function Homepage() {
           </div>
         </sectoin>
 
-        <section className='max-w-280 mx-auto lg:mt-10 mt-5 px-5'>
+        <section className='max-w-7xl mx-auto lg:mt-10 mt-5 px-5'>
           <div className=' bg-[#f4ebe2] lg:p-12 p-8 rounded-3xl'>
             <div className=' flex lg:flex-row flex-col gap-4 lg:gap-14'>
               <h1 className='lg:text-4xl text-xl font-bold text-[#290a03] bellota-text'>Fresh, fast & always here for you</h1>
@@ -301,8 +309,8 @@ export default function Homepage() {
             </div>
           </div>
         </section>
-        <div className='max-w-360 mx-auto pt-15 px-4 '>
-          <div className='sm:flex justify-between ml-10 items-center'>
+        <div className='max-w-360 mx-auto pt-15 px-4 lg:px-0  '>
+          <div className='sm:flex justify-between  items-center'>
             <h1 className='text-4xl font-bold text-[#290a03] bellota-text'>Daily boost bakery items</h1>
             <div className='flex gap-4 pt-5 *:cursor-pointer  '>
               <FaArrowLeft className='custom-prev bg-[#f4ebe2] w-8 p-2 items-center rounded-full hover:bg-[#290a03] hover:text-amber-300' size={34} />
@@ -311,7 +319,7 @@ export default function Homepage() {
           </div>
         </div>
 
-        <div className="pt-10 px-4">
+        <div className="pt-10 px-4 lg:px-0">
           <Swiper
             modules={[Navigation, Pagination, Autoplay]}
             breakpoints={{
@@ -341,7 +349,7 @@ export default function Homepage() {
                       <p className='text-gray-500 text-sm lg:text-base'>{product.reviews}</p>
                     </div>
                   </div>
-                  <button className='w-full group/abc flex flex-col md:flex-row justify-center cursor-pointer relative rounded-full lg:gap-2 p-3 items-center mt-3 bg-white hover:text-white overflow-hidden'>
+                  <button onClick={() => data(product)} className='w-full group/abc flex flex-col md:flex-row justify-center cursor-pointer relative rounded-full lg:gap-2 p-3 items-center mt-3 bg-white hover:text-white overflow-hidden'>
                     {/* <GoDotFill className='absolute top-7 md:top-4 left-2 z-10' /> */}
                     <h1 className='text-[#290a03] font-bold group-hover/abc:text-amber-300 z-10'>Order Now</h1>
                     <p className='text-gray-500 font-semibold group-hover/abc:text-white z-10'>{product.price}</p>
@@ -361,7 +369,7 @@ export default function Homepage() {
         </div>
 
         <div className='max-w-360 px-2 lg:mx-auto pt-10 mx-4 grid lg:grid-cols-3 lg:gap-10 gap-4  grid-cols-1  sm:grid-cols-2'>
-          {person.map((set, index) => {
+          {person.slice(0, maxItems).map((set, index) => {
             return (
               <div className='bg-[#f4ebe2] rounded-3xl p-6 space-y-4'>
                 <h1 className='lg:text-lg text-[15px] font-bold  text-[#290a03] bellota-text' >{set.text}</h1>
@@ -378,7 +386,7 @@ export default function Homepage() {
           <div className='lg:flex gap-10'>
             <h1 className='text-lg font-medium text-[#290a03] lg:w-80  text-center py-10'>Panetrating with top tier bakery stores</h1>
             <Marquee loop={0}>
-              <div className='flex gap-8 '>
+              <div className='flex gap-8 ml-6 '>
                 <img src="/images/imgi_50_68c95c37e3e80dca3e5564fc_client-1.png" alt="" />
                 <img src="/images/imgi_51_68cea1357c90704dd109b3f0_client-2.png" alt="" />
                 <img src="/images/imgi_53_68cea135d7393226b869776d_client-4.png" alt="" />

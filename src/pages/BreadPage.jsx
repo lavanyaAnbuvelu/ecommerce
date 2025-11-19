@@ -1,12 +1,16 @@
 import React, { useState } from 'react'
 import { FaStar } from 'react-icons/fa'
 import { GoDotFill } from 'react-icons/go'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 export default function BreadPage() {
   const location = useLocation()
   const [selectedCategory, setSelectedCategory] = useState(location.state || 'Breads')
 
+   const navigate=useNavigate()
+     const data = (item) => {
+    navigate('/order',{state:item})
+  }
 
   const product = [
     { img1: '/images/imgi_19_68d67fe4ab262b4e4de1a29e_products-18.png',img2: '/images/imgi_21_68d51c5fa2dde26b3dad27a3_instagram-5.png', name: 'Baguette soft breads', reviews: '146 reviews', price: '$ 3.84 USD', Category: 'Breads' },
@@ -71,11 +75,12 @@ export default function BreadPage() {
                     <p className='text-gray-500 text-base text-center '>{item.reviews}</p>
                   </div>
                 </div>
-                <div className=' group flex flex-col md:flex-row justify-center cursor-pointer relative rounded-full lg:gap-2 p-3 items-center mt-3 bg-white hover:bg-[#290a03] hover:text-white'>
-                  <GoDotFill className='absolute top-7 md:top-4 left-2' />
-                  <h1 className='text-[#290a03] font-bold group-hover:text-amber-300'>Order Now</h1>
-                  <p className='text-gray-500 font-semibold group-hover:text-white'>{item.price}</p>
-                </div>
+                 <button onClick={() => data(item)}  className='w-full  group/abc flex flex-col md:flex-row justify-center cursor-pointer relative rounded-full lg:gap-2 p-3 items-center mt-3 bg-white hover:text-white overflow-hidden'>
+                    {/* <GoDotFill className='absolute top-7 md:top-4 left-2 z-10' /> */}
+                    <h1 className='text-[#290a03] font-bold group-hover/abc:text-amber-300 z-10'>Order Now</h1>
+                    <p className='text-gray-500 font-semibold group-hover/abc:text-white z-10'>{item.price}</p>
+                    <div className="absolute bg-[#290a03] top-7 md:top-5 left-3 h-2 w-2 duration-700 rounded-full group-hover/abc:h-full group-hover/abc:w-full group-hover/abc:top-0 group-hover/abc:left-0 "></div>
+                  </button>
               </div>
             </div>
           ))}

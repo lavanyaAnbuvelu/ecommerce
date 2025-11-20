@@ -41,12 +41,8 @@ export default function Header() {
                             <div>
                                 <AiOutlineShopping size={28} className='text-[#290a03] cursor-pointer' />
                             </div>
-                            <div className='lg:hidden '>
-                                <IoIosMenu onClick={() => setMenu(!menu)}  size={25} />
-                            </div>
-                            {/* <div>
-                                <ImCross onClick={() => setdata()}  size={25} />
-                            </div> */}
+                            <button className='lg:hidden' onClick={()=>setMenu(!menu)}>{menu ? <ImCross size={25}/>:<IoIosMenu size={25}/>}
+                            </button>
                         </div>
                     </div>
                 </div>

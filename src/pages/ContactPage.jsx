@@ -2,15 +2,12 @@ import React, { useState } from 'react'
 import { GoDotFill } from "react-icons/go";
 export default function ContactPage() {
 
-    const [data,setdata]=useState({})
-
-    const submit=(e)=>{
+    const [data, setdata] = useState({})
+    const submit = (e) => {
         e.preventDefault()
 
     }
-    console.log(data)
-
-     const sendToWhatsapp = () => {
+    const sendToWhatsapp = () => {
         const phone = "919894677187";
         const text = `
       Contact Details:%0A +
@@ -18,18 +15,15 @@ export default function ContactPage() {
       Email: ₹${data.email}%0A+
       Subject:${data.subject}%0A+
       Message:${data.message}%0A+
-
-
      `;
         const url = `https://api.whatsapp.com/send?phone=${phone}&text=${text}`;
         window.open(url, "_blank");
     };
 
-
     return (
         <>
-            <div className='max-w-360 lg:mx-auto px-4 py-5'>
-                <div className='lg:flex gap-90 justify-between items-center'>
+            <div className='max-w-360 lg:mx-auto px-4 py-5 pt-20 lg:pt-40'>
+                <div className='lg:space-y-4 space-y-0 justify-between items-center'>
                     <h1 className='text-5xl font-bold text-nowrap py-4 bellota-text text-[#290a03]'>Contact us</h1>
                     <p className='text-xl text-gray-800 text-wrap hidden lg:block '>We provide clear contact information, including address, phone number, email, website, and social media links. Include details like opening hours, payment methods.</p>
                 </div>
@@ -37,10 +31,9 @@ export default function ContactPage() {
                     <img src="/images/imgi_11_68d523d62ce6986723c4a52f_contact-pagetitle.png" className=' rounded-3xl min-h-40 object-center object-cover  ' alt="" />
                 </div>
             </div>
-
             <div className='max-w-300 mx-auto px-4 '>
                 <div className='lg:py-6 bg-[#f4ebe2] rounded-3xl mt-4 lg:mt-15  p-4 lg:p-8'>
-                    <div className='lg:flex gap-30'>
+                    <div className='lg:flex justify-between'>
                         <div className='max-w-[20rem] space-y-4' >
                             <h1 className='text-2xl font-bold  bellota-text text-[#290a03]'>We will take care of any problem and help you.</h1>
                             <p className='text-gray-700'>Contact information, including address, phone number, email, website, and social media links</p>
@@ -50,7 +43,7 @@ export default function ContactPage() {
                                 <img src="/images/imgi_12_68ca4762e86df8637070b06e_phone.png" className='bg-white w-16 rounded-2xl h-16 p-2 lg:ml-8 ' alt="" />
                                 <div className='mx-4' >
                                     <p className='text-gray-600'>Contact us at</p>
-                                    <p className='text-[#290a03] font-semibold underline underline-offset-3'>+0123-456-9870</p></div>
+                                    <p className='text-[#290a03] font-semibold underline underline-offset-3 text-nowrap'>+0123-456-9870</p></div>
                             </div>
                             <div className='lg:space-y-2 flex lg:flex-col flex-row '>
                                 <img src="/images/imgi_13_68ca47626bf91c58761ece3d_handshake.png" className='bg-white w-16 rounded-2xl h-16 p-2 lg:ml-10 ' alt="" />
@@ -81,19 +74,18 @@ export default function ContactPage() {
                             </div>
                         </div>
                     </div>
-
                     <div className='bg-[#f4ebe2] rounded-3xl p-8 mt-8 lg:mt-0 my-5'>
                         <h1 className='text-3xl text-[#290a03] font-bold bellota-text' >How we can help you?</h1>
-                        <form onSubmit={() => sendToWhatsapp(data)}className=''>
+                        <form onSubmit={() => sendToWhatsapp(data)} className=''>
                             <div className='lg:flex gap-6 lg:space-y-0 space-y-5 pt-5'>
-                                <input type="text" name="" id="" onChange={(e)=>setdata({...data,"name":e.target.value})} placeholder='Your First Name' className='border rounded-full p-3 w-full lg:w-75' />
-                                <input type="text" name="" id="" onChange={(e)=>setdata({...data,"email":e.target.value})} placeholder='Enter your email address' className='border rounded-full p-3 w-full lg:w-75' />
+                                <input type="text" name="" id="" onChange={(e) => setdata({ ...data, "name": e.target.value })} placeholder='Your First Name' className='border rounded-full p-3 w-full lg:w-75' />
+                                <input type="text" name="" id="" onChange={(e) => setdata({ ...data, "email": e.target.value })} placeholder='Enter your email address' className='border rounded-full p-3 w-full lg:w-75' />
                             </div>
                             <div className='pt-5'>
-                                <input type="text" name="" id="" onChange={(e)=>setdata({...data,"subject":e.target.value})} placeholder='Enter your Subject' required className='border rounded-full p-3 w-full' />
+                                <input type="text" name="" id="" onChange={(e) => setdata({ ...data, "subject": e.target.value })} placeholder='Enter your Subject' required className='border rounded-full p-3 w-full' />
                             </div>
                             <div className='pt-5'>
-                                <textarea name="" id="" onChange={(e)=>setdata({...data,"message":e.target.value})} className='w-full outline-0 border rounded-3xl  min-h-30 max-h-50 pt-2 pl-3' placeholder='Enter the Message'></textarea>
+                                <textarea name="" id="" onChange={(e) => setdata({ ...data, "message": e.target.value })} className='w-full outline-0 border rounded-3xl  min-h-30 max-h-50 pt-2 pl-3' placeholder='Enter the Message'></textarea>
                             </div>
                             <div className='flex items-center gap-4 py-5' >
                                 <p className='w-4 h-4 border  rounded-full'></p>
@@ -158,13 +150,8 @@ export default function ContactPage() {
                                 <h1 className='text-xl text-amber-400 '>@Bisqueria</h1></div>
                         </div>
                     </div>
-
                 </div>
             </div>
-
-
-
         </>
-
     )
 }

@@ -9,38 +9,37 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 export default function OrderPage() {
     const [setdata, selecteddata] = useState('info')
-
+    const [data, setData] = useState()
     const location = useLocation().state
-    console.log(location.Category)
-
-   const items = [
-    { img1: '/images/imgi_24_68d680fb088131fe616531ec_products-6.png', img2: '/images/imgi_17_68d67f5c6342b6c7ed37d668_products-14.png', name: 'Croissant au beurre', reviews: '146 reviews', price: '$ 3.84 USD', Category: '' },
-    { img1: '/images/imgi_17_68d67f5c6342b6c7ed37d668_products-14.png', img2: '/images/imgi_14_68d67fa7c1577d919bb48d61_products-7.png', name: 'Soft pretzels', reviews: '235 reviews', price: '$ 4.64 USD', Category: '' },
-    { img1: '/images/imgi_21_68d51c5fa2dde26b3dad27a3_instagram-5.png', img2: '/images/imgi_19_68d67fe4ab262b4e4de1a29e_products-18.png', name: 'Baguette soft breads', reviews: '380 reviews', price: '$ 14.84 USD', Category: '' },
-    { img1: '/images/imgi_21_68d680689c9187b6a5e053c9_products-10.png', img2: '/images/imgi_14_68d6809c139ef3cd1f1a7106_products-16.png', name: 'Chocolate hazelnut cannoli', reviews: '120 reviews', price: '$ 3.24 USD', Category: '' },
-    { img1: '/images/imgi_14_68d6809c139ef3cd1f1a7106_products-16.png', img2: '/images/imgi_27_68d682231da4a1c391d1d7be_products-15.png', name: 'Focaccia genovese', reviews: '092 reviews', price: '$ 13.84 USD', Category: '' },
-
-  ]
-
-
+    const navigate = useNavigate()
+    const submit = (e) => {
+        e.preventDefault()
+    }
+    const data1 = (item) => {
+        navigate('/order', { state: item })
+    }
     const sendToWhatsapp = () => {
         const phone = "919894677187";
         const text = `
       Product Details:%0A +
       Name: ${location.name}%0A+
-      Price: ₹${location.price}%0A+
-      Reviews:${location.reviews}
+      Price: ${location.price}%0A+
+      Reviews:${location.reviews}%0A+
+      Quantity:${data.quantity}
      `;
         const url = `https://api.whatsapp.com/send?phone=${phone}&text=${text}`;
         window.open(url, "_blank");
     };
-
-
-
+    const items = [
+        { img1: '/images/imgi_24_68d680fb088131fe616531ec_products-6.png', img2: '/images/imgi_17_68d67f5c6342b6c7ed37d668_products-14.png', name: 'Croissant au beurre', reviews: '146 reviews', price: '$ 3.84 USD', Category: '' },
+        { img1: '/images/imgi_17_68d67f5c6342b6c7ed37d668_products-14.png', img2: '/images/imgi_14_68d67fa7c1577d919bb48d61_products-7.png', name: 'Soft pretzels', reviews: '235 reviews', price: '$ 4.64 USD', Category: '' },
+        { img1: '/images/imgi_21_68d51c5fa2dde26b3dad27a3_instagram-5.png', img2: '/images/imgi_19_68d67fe4ab262b4e4de1a29e_products-18.png', name: 'Baguette soft breads', reviews: '380 reviews', price: '$ 14.84 USD', Category: '' },
+        { img1: '/images/imgi_21_68d680689c9187b6a5e053c9_products-10.png', img2: '/images/imgi_14_68d6809c139ef3cd1f1a7106_products-16.png', name: 'Chocolate hazelnut cannoli', reviews: '120 reviews', price: '$ 3.24 USD', Category: '' },
+        { img1: '/images/imgi_14_68d6809c139ef3cd1f1a7106_products-16.png', img2: '/images/imgi_27_68d682231da4a1c391d1d7be_products-15.png', name: 'Focaccia genovese', reviews: '092 reviews', price: '$ 13.84 USD', Category: '' },
+    ]
     return (
         <>
-            <section className='max-w-300 mx-auto px-4'>
-
+            <section className='max-w-300 mx-auto px-4 lg:pt-40 pt-20'>
                 <div>
                     <div className='pt-10  md:flex gap-20 '>
                         <div className='grid md:grid-cols-1 grid-cols-2 gap-4 md:w-1/2 w-full'>
@@ -48,7 +47,7 @@ export default function OrderPage() {
                             <img src={location.img2} alt="" className='rounded-3xl w-full' />
                         </div>
                         <div className='space-y-6 sticky top-20 h-fit md:w-1/2 w-full'>
-                            <div className='flex items-center pt-2'>
+                            <div className='flex gap-2 items-center pt-2'>
                                 <div className='flex text-amber-500 text-center '>
                                     <FaStar className='h-4 w-4 ' /> <FaStar className='h-4 w-4 ' /> <FaStar className='h-4 w-4 ' /> <FaStar className='h-4 w-4 ' /> <FaStar className='h-4 w-4 ' />
                                 </div>
@@ -62,7 +61,7 @@ export default function OrderPage() {
                                 </div>
                             </div>
                             <div className='flex gap-8 items-center'>
-                                <input type="number" name="" defaultValue={1} min={1} max={10} id="" className='bg-[#f4ebe2] w-20 px-4 rounded-full h-12 ' />
+                                <input onChange={(e) => setData({ ...data, "quantity": e.target.value })} type="number" name="" defaultValue={1} min={1} max={10} id="" className='bg-[#f4ebe2] w-20 px-4 rounded-full h-12 ' />
                                 <button onClick={() => sendToWhatsapp(location)} className='lg:text-xl text-lg font-bold bg-[#290a03] text-white hover:bg-amber-400 lg:w-80 w-full cursor-pointer rounded-full text-center p-2 hover:text-[#290a03]'>Add to Cart</button>
                             </div>
                             <div className='flex gap-2'>
@@ -83,7 +82,6 @@ export default function OrderPage() {
                                         <p>A Drop cookies are made by dropping soft dough by spoonfuls onto a baking sheet, like classic chocolate chip and oatmeal raisin cookies.</p>
                                     }
                                 </div>
-
                             </div>
                             <hr />
                             <div className='flex flex-wrap gap-8 pt-4 '>
@@ -99,17 +97,13 @@ export default function OrderPage() {
                                     <img src="/images/imgi_17_68c93b1b4ec60e3db473e4d6_gift.png" alt="" />
                                     <h1 className='text-lg font-semibold text-[#290a03]'>Gift box</h1>
                                 </div>
-
                             </div>
                         </div>
-
-
                     </div>
-
                 </div>
             </section>
             <div className='max-w-360 mx-auto pt-15 lg:px-4 px-0 '>
-                <div className='sm:flex justify-between ml-10 items-center'>
+                <div className='sm:flex justify-between px-4 items-center'>
                     <h1 className='text-4xl font-bold text-[#290a03] bellota-text'>Daily boost bakery items</h1>
                     <div className='flex gap-4 pt-5 *:cursor-pointer  '>
                         <FaArrowLeft className='custom-prev bg-[#f4ebe2] w-8 p-2 items-center rounded-full hover:bg-[#290a03] hover:text-amber-300' size={34} />
@@ -117,9 +111,7 @@ export default function OrderPage() {
                     </div>
                 </div>
             </div>
-
-            <div className="pt-10 lg:px-4 max-w-360 mx-auto px-0">
-
+            <div className="pt-10 px-2 max-w-360 mx-auto ">
                 <Swiper
                     modules={[Navigation, Pagination, Autoplay]}
                     breakpoints={{
@@ -131,8 +123,7 @@ export default function OrderPage() {
                     loop={true}
                     autoplay={{ delay: 2000, disableOnInteraction: false }}
                     speed={1000}
-                    className=''
-                >
+                    className='' >
                     {items.map((product, index) => (
                         <SwiperSlide key={index}>
                             <div className='group p-2 rounded-4xl pl-2 bg-linear-to-b from-white mx-2 to-[#f4ebe2] hover:from-[#f4ebe2] '>
@@ -147,8 +138,7 @@ export default function OrderPage() {
                                         <p className='text-gray-500 text-sm lg:text-base'>{product.reviews}</p>
                                     </div>
                                 </div>
-                                <button className='w-full group/abc flex flex-col md:flex-row justify-center cursor-pointer relative rounded-full lg:gap-2 p-3 items-center mt-3 bg-white hover:text-white overflow-hidden'>
-
+                                <button onClick={() => data1(product)} className='w-full group/abc flex flex-col md:flex-row justify-center cursor-pointer relative rounded-full lg:gap-2 p-3 items-center mt-3 bg-white hover:text-white overflow-hidden'>
                                     <h1 className='text-[#290a03] font-bold group-hover/abc:text-amber-300 z-10'>Order Now</h1>
                                     <p className='text-gray-500 font-semibold group-hover/abc:text-white z-10'>{product.price}</p>
                                     <div className="absolute bg-[#290a03] top-7 md:top-5 left-3 h-2 w-2 duration-700 rounded-full group-hover/abc:h-full group-hover/abc:w-full group-hover/abc:top-0 group-hover/abc:left-0 "></div>
@@ -156,10 +146,8 @@ export default function OrderPage() {
                             </div>
                         </SwiperSlide>
                     ))}
-
                 </Swiper>
             </div>
-
         </>
     )
 }

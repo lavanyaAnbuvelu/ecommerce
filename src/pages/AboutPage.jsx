@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom'
 
 export default function AboutPage() {
     const maxItems = window.innerWidth < 700 ? 1 : window.innerWidth < 1000 ? 2 : 3;
-
     const person = [
         { text: '“ Whether it’s the warm bread, or just the cozy aroma that fills the air, this bakery always brighter ”', img: '/images/imgi_47_68cbcbffbe9b0a3cd99a7a8e_testimonial-1.png', name: 'Daniel armstrong', sm: 'Physician & athlet' },
         { text: '“ The aroma hits you the moment you walk in. Every bite tastes like it was made just for me ”', img: '/images/imgi_48_68cbcbff23a598f4014ed4fc_testimonial-2.png', name: 'Evelyn hall', sm: 'Diet instructor' },
@@ -15,8 +14,8 @@ export default function AboutPage() {
     ]
     return (
         <>
-            <div className='max-w-360 lg:mx-auto px-4 py-5'>
-                <div className='lg:flex gap-90 justify-between items-center'>
+            <div className='max-w-360 lg:mx-auto px-4 pt-25 lg:pt-45'>
+                <div className=' lg:space-y-4 space-y-0 justify-between items-center'>
                     <h1 className='text-5xl font-bold text-nowrap py-4 text-[#290a03] bellota-text'>About us</h1>
                     <p className='text-xl text-gray-800 text-wrap hidden lg:block '>We use only the finest ingredients to create an array of delicious treats, from classic sourdough breads to delicate pastries and custom-designed cakes for all your special occasions.</p>                </div>
                 <div className=' py-8'>
@@ -34,12 +33,11 @@ export default function AboutPage() {
                             <img src="/images/imgi_52_68cea13545702f6c824a63ad_client-3.png" alt="" />
                             <img src="/images/imgi_55_68cea185fd90d450bd1d077a_client-6.png" alt="" />
                             <img src="/images/imgi_54_68cea135b7c12bfd834d1107_client-5.png" alt="" />
-
                         </div>
                     </Marquee>
                 </div>
                 <div className='lg:pt-15 pt-5 text-gray-400'>
-                    <hr></hr>
+                    <hr />
                 </div>
                 <div className='lg:pt-15 pt-5 px-2 p-2 lg:flex gap-12'>
                     <div className='bg-[url(/images/imgi_18_68d51a5d772c066d09230f90_about-3.png)] bg-cover rounded-3xl '>
@@ -117,7 +115,6 @@ export default function AboutPage() {
                     </div>
                 </div>
             </div>
-
             <div className='max-w-280 mx-auto  px-4'>
                 <div className='bg-[#f4ebe2] p-6 lg:mt-15 mt-10 rounded-3xl '>
                     <div className='lg:flex  lg:gap-30'>
@@ -156,10 +153,7 @@ export default function AboutPage() {
                             </div>)
                     })}
                 </div>
-
             </div>
-
-
         </>
     )
 }

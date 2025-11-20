@@ -14,30 +14,21 @@ import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 import { BiCategory } from 'react-icons/bi';
 
 
+
 export default function Homepage() {
 
-  const maxItems = window.innerWidth < 700 ? 1 : window.innerWidth < 1000 ? 2 : 3;
-
   const [selectedCategory, setSelectedCategory] = useState('all')
-
   const location = useLocation()
-
   console.log(location.state)
-
   const navigate = useNavigate()
-
   const data1 = (text) => {
     console.log('data1')
     navigate('/menu', { state: text })
   }
-
-
-
+  const maxItems = window.innerWidth < 700 ? 1 : window.innerWidth < 1000 ? 2 : 3;
     const data = (item) => {
     navigate('/order',{state:item})
   }
-
-
   const names = [
     { name: 'Breads', no: '8', },
     { name: 'Cookies', no: '20', },
@@ -46,7 +37,6 @@ export default function Homepage() {
     { name: 'Pastries', no: '12', },
     { name: 'Croissant', no: '15', },
   ]
-
   const product = [
     { img1: '/images/imgi_15_68d67ed24708b3054414f063_products-1.png', img2: '/images/imgi_21_68d51c5fa2dde26b3dad27a3_instagram-5.png', name: 'Oatmeal raisin cookies', reviews: '146 reviews', price: '$ 3.84 USD', Category: 'Best Sellers' },
     { img1: '/images/imgi_17_68d67f5c6342b6c7ed37d668_products-14.png', img2: '/images/imgi_14_68d67fa7c1577d919bb48d61_products-7.png', name: 'Soft pretzels', reviews: '235 reviews', price: '$ 4.64 USD', Category: 'Best Sellers' },
@@ -57,10 +47,7 @@ export default function Homepage() {
     { img1: '/images/imgi_25_68d681a85087e2bb9ab99aa8_products-3.png', img2: '/images/imgi_14_68d681ce2bed7d3bd6dbb082_products-8.png', name: 'Chiffon pie', reviews: '110 reviews', price: '$ 7.84 USD', Category: 'Fresh Bakes' },
     { img1: '/images/imgi_14_68d6809c139ef3cd1f1a7106_products-16.png', img2: '/images/imgi_27_68d682231da4a1c391d1d7be_products-15.png', name: 'Focaccia genovese', reviews: '092 reviews', price: '$ 13.84 USD', Category: 'Fresh Bakes' },
   ]
-
   const filterData = product.filter(sl => selectedCategory == 'all' ? true : sl.Category == selectedCategory)
-
-
   //  const filterData = product.filter(sl => {
   //   if (selectedCategory === 'all') {
   //     return true;
@@ -96,7 +83,7 @@ export default function Homepage() {
 
         <section className='max-w-360 px-5 mx-auto pb-5 lg:pb-10'>
           <div className=''>
-            <h1 className='text-5xl md:text-6xl lg:text-9xl text-[#290a03]  bellota-text font-bold pt-5 ' > The Art Of Baking</h1>
+            <h1 className='text-5xl md:text-6xl lg:text-9xl text-[#290a03]  bellota-text font-bold pt-25 lg:pt-40 ' > The Art Of Baking</h1>
           </div>
           <div className=' flex flex-col lg:flex-row lg:gap-20 gap-10 max-w-360 mx-auto lg:p-10'>
             <div>
@@ -134,25 +121,20 @@ export default function Homepage() {
               <div className='flex gap-4 flex-wrap ml-10 '>
 
                 {names.map((data, index) => (
-                  <div onClick={() => data1(data.name)} key={index} className='group relative overflow-hidden flex items-center gap-7 rounded-full hover:cursor-pointer bg-white p-2 px-4 lg:pl-7 font-semibold hover:bg-amber-400 duration-500'>
+                  <div onClick={() => data1(data.name)} key={index} className='group relative overflow-hidden flex items-center gap-7 rounded-full hover:cursor-pointer  bg-white p-3 px-4 lg:pl-7 font-semibold hover:bg-amber-400 duration-500'>
                     <h1 className=' text-[#290a03] group-hover:text-white z-20 font-bold'>{data.name}</h1>
                     {/* <div className="h-10 w-10 bg-[#f5ece4] lg:flex items-center justify-center rounded-full group-hover:bg-amber-950 group-hover:text-white hidden "> */}
-                      <p className='z-20 text-white hidden lg:block '>{data.no}</p>
-                    <div className='absolute right-0   rounded-full hidden lg:block bg-[#290a03]  duration-400 group-hover:w-full group-hover:h-full  w-10 h-10'>
-
+                      <p className='z-20 text-white text-center  hidden lg:block '>{data.no}</p>
+                    <div className='absolute right-0 justify-center text-center rounded-full hidden lg:block bg-[#290a03]  duration-400 group-hover:w-full group-hover:h-full  w-10 h-10'>
                     </div>
                     </div>
                   // </div>
                 ))}
-
               </div>
             </div>
-
           </div>
         </section>
-
-
-        <section className="max-w-360 mx-auto px-3 lg:px-5 pt-15">
+        <section className="max-w-360 mx-auto px-4 lg:px-5  pt-15">
           <div className=''>
             <div className=' md:flex justify-between '>
               <h1 className='lg:text-4xl text-2xl font-bold text-[#290a03]'>List of our products</h1>
@@ -163,7 +145,6 @@ export default function Homepage() {
               </div>
             </div>
           </div>
-
           <div className='pt-10 gap-4  lg:gap-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 '>
             {filterData.map((item, index) => (
               <div key={index} className='group p-2 rounded-4xl pl-2 bg-linear-to-b from-[#f4ebe2] to-[#f4ebe2] lg:from-white lg:hover:from-[#f4ebe2] flex flex-col justify-between'>
@@ -192,7 +173,6 @@ export default function Homepage() {
             ))}
           </div>
         </section>
-
         <section className='max-w-7xl mx-auto lg:pt-20 pt-5 px-5 lg:px-10'>
           <div className='flex lg:flex-row flex-col  gap-6 lg:gap-14 '>
             <div>
@@ -254,42 +234,36 @@ export default function Homepage() {
           <div>
             <h1 className='lg:text-5xl text-xl  font-bold px-2 text-center pt-15 text-[#290a03] bellota-text'>Why bakery's items is so special to our happy customer?</h1>
           </div>
-
           <div className=' grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-12 max-w-400 mx-auto lg:gap-10 gap-2 px-4   sm:pt-10'>
-
             <div className="bg-[url(/images/imgi_36_68d51bcde5970647b0d24e45_discount-1.png)] lg:col-span-3 lg:min-h-30 min-h-100  bg-center bg-cover lg:my-20 order-2 rounded-3xl sm:order-1 ">
               <div className=' text-center  space-y-4'>
                 <div className='flex gap-2  md:mx-22 mx-30 pt-5 flex-nowrap  md:flex-wrap '>
                   <h1 className='lg:text-3xl text-lg sm:text-xl  font-bold text-white'>Fresh</h1>
                   <h1 className='lg:text-3xl text-lg sm:text-xl font-bold text-amber-400'>baked</h1>
                 </div>
-                <Link className='lg:text-xl text-sm underline sm:text-xl underline-offset-2    font-bold text-white'>Order now</Link>
+                <Link className='lg:text-xl text-sm hover:no-underline underline sm:text-xl underline-offset-2    font-bold text-white'>Order now</Link>
               </div>
             </div>
-
             <div className="bg-[url(/images/imgi_37_68d51bcd55f255d282122024_discount-2.png)] rounded-3xl lg:col-span-5 bg-center sm:col-span-2 sm:min-h-180 min-h-100 bg-cover order-3 sm:order-3 lg:order-2 ">
               <div className='text-center pt-10 sm:space-y-8 space-y-4 mx-auto'>
                 <h1 className='lg:text-5xl text-3xl font-bold text-white'>Buy one get one</h1>
                 <h1 className='sm:text-8xl text-3xl font-bold text-amber-400 text-center'>Free</h1>
               </div>
             </div>
-
             <div className="lg:col-span-4 lg:my-20 mt-15 space-y-8 bg-center  order-1 sm:order-2">
               <div className='lg:flex flex-row '>
                 <img src="/images/imgi_38_68d51a5df00a6ea58c217943_about-2.png" alt="" className='w-full rounded-3xl h-60 object-center object-cover lg:block hidden' />
               </div>
               <div className="bg-[url(/images/imgi_39_68d51bcde83766b86c361bba_discount-3.png)] bg-cover bg-center min-h-64 lg:min-h-100 sm:min-h-[] rounded-3xl ">
-                <div className='lg:space-y-6 space-y-2 sm:pt-20 pt-5 pl-10 py-10'>
+                <div className='lg:space-y-6 space-y-2 sm:pt-20 pt-10 lg:pt-5 pl-10 py-10'>
                   <h1 className='text-5xl  text-amber-300 font-bold'>25% off</h1>
                   <p className='lg:text-4xl text-2xl  text-white font-bold '>Test the real <br />baked items.</p>
-                  <Link className='text-xl underline underline-offset-2  font-bold text-white'>Order now</Link>
+                  <Link className='text-xl hover:no-underline underline underline-offset-2  font-bold text-white'>Order now</Link>
                 </div>
               </div>
             </div>
-
           </div>
         </sectoin>
-
         <section className='max-w-7xl mx-auto lg:mt-10 mt-5 px-5'>
           <div className=' bg-[#f4ebe2] lg:p-12 p-8 rounded-3xl'>
             <div className=' flex lg:flex-row flex-col gap-4 lg:gap-14'>
@@ -318,7 +292,6 @@ export default function Homepage() {
             </div>
           </div>
         </div>
-
         <div className="pt-10 px-4 lg:px-0">
           <Swiper
             modules={[Navigation, Pagination, Autoplay]}
@@ -333,8 +306,7 @@ export default function Homepage() {
             speed={1000}
             // pagination={{ clickable: true }}
             // scrollbar={{ draggable: true }}
-            className='select-none max-w-360 mx-auto'
-          >
+            className='select-none max-w-360 mx-auto'>
             {item.map((product, index) => (
               <SwiperSlide key={index}>
                 <div className='group p-2 rounded-4xl pl-2 bg-linear-to-b from-white mx-2 to-[#f4ebe2] hover:from-[#f4ebe2] '>
@@ -358,30 +330,24 @@ export default function Homepage() {
                 </div>
               </SwiperSlide>
             ))}
-
           </Swiper>
         </div>
-
-
-
         <div className='max-w-220 mx-auto text-center  pt-10 lg:pt-20'>
           <h1 className='text-4xl font-bold text-[#290a03] bellota-text'>What our fans say</h1>
         </div>
-
         <div className='max-w-360 px-2 lg:mx-auto pt-10 mx-4 grid lg:grid-cols-3 lg:gap-10 gap-4  grid-cols-1  sm:grid-cols-2'>
           {person.slice(0, maxItems).map((set, index) => {
             return (
               <div className='bg-[#f4ebe2] rounded-3xl p-6 space-y-4'>
-                <h1 className='lg:text-lg text-[15px] font-bold  text-[#290a03] bellota-text' >{set.text}</h1>
+                <h1 className='lg:text-sm text-[15px] font-bold  text-[#290a03] bellota-text' >{set.text}</h1>
                 <img src={set.img} className='rounded-3xl w-full ' alt="" />
-                <div className='lg:flex gap-4 lg:ml-18 ml-5 '>
-                  <h1 className='lg:text-lg text-sm font-medium  text-[#290a03]'>{set.name}</h1>
-                  <p className='lg:text-lg text-sm font-medium  text-gray-500'>{set.sm}</p>
+                <div className='lg:flex gap-4 justify-center text-nowrap  '>
+                  <h1 className='xl:text-lg text-sm  font-medium  text-[#290a03]'>{set.name}</h1>
+                  <p className='xl:text-lg text-sm font-medium  text-gray-500'>{set.sm}</p>
                 </div>
               </div>)
           })}
         </div>
-
         <div className='max-w-360 lg:mx-auto mx-4 lg:pt-15 '>
           <div className='lg:flex gap-10'>
             <h1 className='text-lg font-medium text-[#290a03] lg:w-80  text-center py-10'>Panetrating with top tier bakery stores</h1>
@@ -397,9 +363,7 @@ export default function Homepage() {
             </Marquee>
           </div>
         </div>
-
       </div>
-
     </>
   )
 }

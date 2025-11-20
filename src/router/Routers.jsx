@@ -8,11 +8,13 @@ import BreadPage from '../pages/BreadPage'
 import Test from '../pages/Test'
 import Blog from '../pages/Blog'
 import OrderPage from '../pages/OrderPage'
+import ScrollToTop from '../pages/ScrollToTop'
 
 export default function Routers() {
   return (
    <>
    <BrowserRouter>
+   <ScrollToTop />
    <Routes>
     <Route element={<Main/>}>
     <Route path='/' element={<Homepage/>}/>

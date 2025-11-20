@@ -31,7 +31,7 @@ export default function Header() {
                 </div>
                 <div className={`bg-linear-to-b ${scroll ? ' shadow-lg':''} from-[#fff7cc] to-white p-5 `}>
                     <div className='max-w-360 mx-auto flex items-center justify-between'>
-                        <h1 className='text-[#290a03] font-bold text-4xl'>Bisqueria</h1>
+                        <Link to={'/'}><h1 className='text-[#290a03] font-bold text-4xl'>Bisqueria</h1></Link>
                         <div id='abc' className={` ${menu ? '' : 'hidden lg:flex'} flex  list-none gap-5 font-bold  text-[#290a03] text-lg absolute left-0 px-10 p-5 text-nowrap bg-[#f4ebe2] w-full top-20 flex-col lg:static lg:bg-transparent lg:w-fit lg:flex-row`}>
                             <Link to={'/'} ><li className={`${location == '/' ? 'underline text-yellow-500 underline-offset-5 ' : ''}`} >Home</li></Link>
                             <Link to={'/about'}  ><li className={`${location == '/about' ? 'underline text-yellow-500 underline-offset-5 ' : ''}`}>About</li></Link>
